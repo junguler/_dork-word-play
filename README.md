@@ -1,7 +1,7 @@
-| ![D](gifs/D.gif) | ![O](gifs/O.gif) | ![R](gifs/R.gif) | ![K](gifs/K.gif) |  |  |  |  |  |  |
-|---|---|---|---|---|---|---|---|---|---|
-| ![C](gifs/C.gif) | ![H](gifs/H.gif) | ![A](gifs/A.gif) | ![R](gifs/R.gif) | ![A](gifs/A.gif) | ![C](gifs/C.gif) | ![T](gifs/T.gif) | ![E](gifs/E.gif) | ![R](gifs/R.gif) |  |   
-| ![A](gifs/A.gif) | ![N](gifs/N.gif) | ![I](gifs/I.gif) | ![M](gifs/M.gif) | ![A](gifs/A.gif) | ![T](gifs/T.gif) | ![I](gifs/I.gif) | ![O](gifs/O.gif) | ![N](gifs/N.gif) | ![S](gifs/S.gif) |  
+| ![5C](gifs/5C.gif) | ![D](gifs/D.gif) | ![O](gifs/O.gif) | ![R](gifs/R.gif) | ![K](gifs/K.gif) |  |  |  |  | 
+|---|---|---|---|---|---|---|---|---|
+|  |  | ![C](gifs/C.gif) | ![H](gifs/H.gif) | ![A](gifs/A.gif) | ![R](gifs/R.gif) | ![5C](gifs/5C.gif) |  |  | 
+|  |  |  |  | ![A](gifs/A.gif) | ![N](gifs/N.gif) | ![I](gifs/I.gif) | ![M](gifs/M.gif) | ![A](gifs/A.gif) | 
 
 <br>
 
