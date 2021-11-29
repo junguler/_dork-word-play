@@ -1,4 +1,10 @@
-# dork character animations
+| ![D](gifs/D.gif) | ![o](gifs/o.gif) | ![r](gifs/r.gif) | ![k](gifs/k.gif) |  |  |  |  |  |  |
+|---|---|---|---|---|---|---|---|---|---|
+| ![C](gifs/C.gif) | ![h](gifs/h.gif) | ![a](gifs/a.gif) | ![r](gifs/r.gif) | ![a](gifs/a.gif) | ![c](gifs/c.gif) | ![t](gifs/t.gif) | ![e](gifs/e.gif) | ![r](gifs/r.gif) |  |   
+| ![A](gifs/A.gif) | ![n](gifs/n.gif) | ![i](gifs/i.gif) | ![m](gifs/m.gif) | ![a](gifs/a.gif) | ![t](gifs/t.gif) | ![i](gifs/i.gif) | ![o](gifs/o.gif) | ![n](gifs/n.gif) | ![s](gifs/s.gif) |  
+
+<br>
+
 imagemagick is massive, it's too big in fact but that doesn't mean we can't mess around with it and see what we can come up with, i'm interested in making small animated gifs of keyboard characters and that's exactly what i'm going to showcase here
 
 <br>
