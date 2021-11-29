@@ -91,7 +91,7 @@ the mono in that font name refers to every character taking the same width as ot
 ## printing special characters
 special characters are harder to work with since they are not aload to be used in file names in windows specially so because we want to have a cross-platform solution we convert their file names to their hex counterparts, note that this command is a zsh exclusive command and doesn't work on bash
 ```
-for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background yellow -fill black -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char $hex.jpg ; done
+for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background yellow -fill black -font ./nerd.ttf -size 30x30 -extent 30x30 caption:$char $hex.jpg ; done
 ```
 ![2A](https://user-images.githubusercontent.com/59083599/143861236-049dd0b8-7591-4906-b322-7d76f845b229.jpg)
 ![2B](https://user-images.githubusercontent.com/59083599/143861238-af7329f0-4dfe-4b45-8bf4-1c1923e7779b.jpg)
@@ -126,3 +126,22 @@ for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; do printf -v he
 ![60](https://user-images.githubusercontent.com/59083599/143861323-e5ec056c-cb37-432f-9474-43010a844160.jpg)
 
 notice the segmented ranges in our for loop ``{\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~}`` the reason for this is that we don't want duplicate characters as our normal characters above so we exclude the ranges they are in withing our for loop, if you don't care about file names you can do ``{" "..~}`` and combine both steps together
+
+## animating the characters
+so far we've been working with static image but let's change all of that and use ffmpeg to make a simple animating, we'll combine two for loops together one for the degrees of hue change (which changes the color of the images) and one for ffmpeg to iterate thru our images
+```
+for h in {30..360..30} ; for i in {a..z}.jpg {A..Z}.jpg {0..9}.jpg ; do mkdir output ; ffmpeg -i $i -vf hue=h=$h output/$h-$i ; done
+```
+
+we also made a `output` folder and put the output images inside it to keep things orginized, now cd into that folder ``cd output/``
+
+we need to pad a zero before filenames because the shell doesn't read files numberically and doesn't know the number 30 in filenames comes before 120 for example
+```
+for x in *.jpg ; do mv $x `printf %03d-%s ${x%-*} ${x##*-}` ; done 
+```
+
+now we are ready to animate these image sequences using the `convert` program
+```
+for m in {a..z} {A..Z} {0..9} ; do convert *-$m.jpg $m.gif ; done 
+```
+notice that the same pattern that we used when converting the input images is used for outputing the animations
