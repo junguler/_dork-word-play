@@ -7,7 +7,7 @@
 
 imagemagick is massive, it's too big in fact but that doesn't mean we can't mess around with it and see what we can come up with, i'm interested in making small animated gifs of keyboard characters and that's exactly what i'm going to showcase here
 
-note: there are a lot of little images and gifs need to be loaded for this page to look correct, if you see any weird behaviour of links not loading just refresh the page and your web browser hopefully caches everything by that time
+note: there are a lot of little images and gifs need to be loaded for this page to look correctly, if you see any weird behaviour of links not loading just refresh the page and your web browser hopefully caches everything by that time
 
 <br>
 
