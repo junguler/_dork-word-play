@@ -11,6 +11,17 @@ note: there are a lot of little images and gifs need to be loaded for this page 
 
 <br>
 
+### quick links
+ * [output all characters](https://github.com/junguler/_dork-char-anima#output-all-of-the-characters-in-a-for-loop)
+ * [output special characters](https://github.com/junguler/_dork-char-anima#printing-special-characters)
+ * [animate the characters](https://github.com/junguler/_dork-char-anima#animating-the-characters)
+ * [animate the special characters](https://github.com/junguler/_dork-char-anima#animating-special-characters)
+ * [invert your gifs](https://github.com/junguler/_dork-char-anima#invert-your-output-gifs)
+ * [scroll your gifs](https://github.com/junguler/_dork-char-anima#scroll-your-gifs)
+ * [combine multiple filters](https://github.com/junguler/_dork-char-anima#combine-multiple-filters)
+
+<br>
+
 ## how to create an image using characters with imagemagick?
 this couldn't be more easier, we'll use the program `convert` (in some version it's called magick) to achieve this
 ```
