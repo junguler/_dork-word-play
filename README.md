@@ -208,3 +208,15 @@ notice that the same pattern that we used when converting the input images is us
 ![X](gifs/X.gif)
 ![Y](gifs/Y.gif)
 ![Z](gifs/Z.gif)
+
+## animating special characters
+the same principles applies here, we just need to adjust our commands a bit, first the ffmpeg command
+```
+for h in {30..360..30} ; for i in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do mkdir output2 ; ffmpeg -i $i.jpg -vf hue=h=$h output2/$h-$i.jpg ; done
+```
+because we only want speciall characters and don't need duplicates we specially named every output file we need, we also made a new output2 folder to keep things orginized, cd into the folder like before ``cd output2/`` and zero pad them just like before ``for x in *.jpg ; do mv $x `printf %03d-%s ${x%-*} ${x##*-}` ; done``
+
+now lets convert them to animated gifs
+```
+for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert *-$m.jpg $m.gif ; done
+```
