@@ -144,7 +144,7 @@ notice the segmented ranges in our for loop ``{\!..\)} \@ \` {\*..\/} {\:..\?} {
 <br>
 
 ## animating the characters
-so far we've been working with static image but let's change all of that and use ffmpeg to make a simple animating, we'll combine two for loops together one for the degrees of hue change (which changes the color of the images) and one for ffmpeg to iterate thru our images
+so far we've been working with static image but let's change all of that and use ffmpeg to make a simple animation, we'll combine two for loops together one for the degrees of hue change (which changes the color of the images) and one for ffmpeg to iterate thru our images
 ```
 for h in {30..360..30} ; for i in {a..z}.jpg {A..Z}.jpg {0..9}.jpg ; do mkdir output ; ffmpeg -i $i -vf hue=h=$h output/$h-$i ; done
 ```
