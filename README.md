@@ -16,7 +16,7 @@ convert -gravity center -background yellow -fill black -size 30x30 caption:"A" A
 ```
 ![A-A](temp/A-A.jpg)
 
-as you can see `-gravity center` is supposed to center our character vertically and horizontally but it doesn't that correctly, we can correct this using `-trim` which remove white spcaes in the image and pad it to center with `-extent` and passing the same size as our output image
+as you can see `-gravity center` is supposed to center our character vertically and horizontally but it doesn't do that completelt, we can correct this using `-trim` which removes white spcaes in the image and pad it to center with `-extent` and passing the same size as our output image
 ```
 convert -gravity center -background yellow -fill black -size 30x30 caption:"A" -trim -extent 30x30 A.jpg
 ```
