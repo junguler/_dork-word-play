@@ -374,4 +374,6 @@ for i in *.gif ; do mkdir inverted ; ffmpeg -i $i -vf negate inverted/I-$i ; don
 ![I-z](gifs/inverted/I-z.gif)
 ![I-Z](gifs/inverted/I-Z.gif)
 
+<br>
+
 ###### more examples coming soon
