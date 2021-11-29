@@ -82,6 +82,47 @@ for i in {a..z} {A..Z} {0..9} ; do convert -gravity center -trim -background yel
 ![z](https://user-images.githubusercontent.com/59083599/143859437-1aa5b10d-bcd8-4377-9e62-6f43174f8e5c.jpg)
 ![Z](https://user-images.githubusercontent.com/59083599/143859438-d85c7f57-4ba5-4282-a907-eedfbff92f99.jpg)
 
-we also used a custom font with `-font` called `nerd.ttf` which was actually `Caskaydia Cove Nerd Font Mono` which i rename for simplicity and put inside the folder i'm making these images, you can also pass the abseloute path to it in your filesystem 
+`{a..z} {A..Z} {0..9}` in our for loop tells our shell to iterate thru numbers 0 to 9, characters from a to z and A to Z one by one
+
+we also used a custom font with `-font` called `nerd.ttf` which was actually `Caskaydia Cove Nerd Font Mono` which i renamed for simplicity and put inside the folder i'm making these images, you can also pass the abseloute path to it in your filesystem 
 
 the mono in that font name refers to every character taking the same width as other, these fonts are typically used in ascii art, terminal emulators and code editors to easily be able to read them but i'm using the mono variant because it's easier to fit into the image
+
+## printing special characters
+special characters are harder to work with since they are not aload to be used in file names in windows specially so because we want to have a cross-platform solution we convert their file names to their hex counterparts, note that this command is a zsh exclusive command and doesn't work on bash
+```
+for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background yellow -fill black -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char $hex.jpg ; done
+```
+![2A](https://user-images.githubusercontent.com/59083599/143861236-049dd0b8-7591-4906-b322-7d76f845b229.jpg)
+![2B](https://user-images.githubusercontent.com/59083599/143861238-af7329f0-4dfe-4b45-8bf4-1c1923e7779b.jpg)
+![2C](https://user-images.githubusercontent.com/59083599/143861239-100161af-6962-4e13-b6d8-b27aedb90740.jpg)
+![2D](https://user-images.githubusercontent.com/59083599/143861242-279b38c3-48e6-4825-830e-99f43829594d.jpg)
+![2E](https://user-images.githubusercontent.com/59083599/143861247-d7bda9e3-3dea-4561-89b5-3c7e1565715d.jpg)
+![2F](https://user-images.githubusercontent.com/59083599/143861252-6f342676-9767-4f14-affc-1b786b1a4c00.jpg)
+![3A](https://user-images.githubusercontent.com/59083599/143861254-31384c9c-0b8d-467e-8efe-7ab913ee045f.jpg)
+![3B](https://user-images.githubusercontent.com/59083599/143861256-ecb154de-fb84-43d1-8d09-7fddc6540c52.jpg)
+![3C](https://user-images.githubusercontent.com/59083599/143861263-8479dcf5-4584-42fa-bc6e-ccb89cbce1cd.jpg)
+![3D](https://user-images.githubusercontent.com/59083599/143861265-fbecd40d-95cf-45a0-9009-883405596fc1.jpg)
+![3E](https://user-images.githubusercontent.com/59083599/143861269-68162cca-e7c2-40dd-abae-ffce2ba0586c.jpg)
+![3F](https://user-images.githubusercontent.com/59083599/143861270-719b588a-8c8b-4412-a5d9-c3101a2bf49a.jpg)
+![5B](https://user-images.githubusercontent.com/59083599/143861273-16bc73ef-dd4a-4ac3-b2e2-4b0e5f3cab90.jpg)
+![5C](https://user-images.githubusercontent.com/59083599/143861274-d776521e-6022-49f8-afdb-887ee10f8ed2.jpg)
+![5D](https://user-images.githubusercontent.com/59083599/143861278-dbb49ab8-cc29-4274-b7a8-157e8ca5b769.jpg)
+![5E](https://user-images.githubusercontent.com/59083599/143861283-e1eab6e8-cea3-408d-bdfc-ce28ddaa469c.jpg)
+![7B](https://user-images.githubusercontent.com/59083599/143861286-b16bbbcf-d234-4d61-bc9e-2095d635acfd.jpg)
+![7C](https://user-images.githubusercontent.com/59083599/143861287-c08e01a8-7b2b-4a9c-a649-cc373ab67aa7.jpg)
+![7D](https://user-images.githubusercontent.com/59083599/143861290-6290d37d-db8f-4cc7-ac97-c88c0c12e297.jpg)
+![7E](https://user-images.githubusercontent.com/59083599/143861295-8a53fad3-7c57-42bf-ad2e-08e469c71650.jpg)
+![21](https://user-images.githubusercontent.com/59083599/143861297-a82ccd5b-7b1e-4149-b3e4-b292cba54c01.jpg)
+![22](https://user-images.githubusercontent.com/59083599/143861298-de2e114f-a22c-40e6-a8dc-ed9cb9166457.jpg)
+![23](https://user-images.githubusercontent.com/59083599/143861302-636f55e9-3d2b-4c8d-b5ce-65491784eaa5.jpg)
+![24](https://user-images.githubusercontent.com/59083599/143861304-6071b4ce-c69f-4f4b-b142-3a1f68629fda.jpg)
+![25](https://user-images.githubusercontent.com/59083599/143861307-f4faa7b9-959f-4e88-a4d5-c6d1983febee.jpg)
+![26](https://user-images.githubusercontent.com/59083599/143861311-5d402c63-c36a-4d49-9448-939d161be6fd.jpg)
+![27](https://user-images.githubusercontent.com/59083599/143861313-04ef5c80-b856-40c5-a2d2-4634ae7fd7d8.jpg)
+![28](https://user-images.githubusercontent.com/59083599/143861315-63c4c65d-cd88-4426-b645-6576af11bf9b.jpg)
+![29](https://user-images.githubusercontent.com/59083599/143861316-0dbe40ac-eaec-4d62-8c65-6dfb896ffa35.jpg)
+![40](https://user-images.githubusercontent.com/59083599/143861320-7cfe7867-6240-46c8-8c9c-f51deb5a3a61.jpg)
+![60](https://user-images.githubusercontent.com/59083599/143861323-e5ec056c-cb37-432f-9474-43010a844160.jpg)
+
+notice the segmented ranges in our for loop ``{\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~}`` the reason for this is that we don't want duplicate characters as our normal characters above so we exclude the ranges they are in withing our for loop, if you don't care about file names you can do ``{" "..~}`` and combine both steps together
