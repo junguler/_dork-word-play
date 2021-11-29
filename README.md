@@ -1,6 +1,8 @@
 # dork character animations
 imagemagick is massive, it's too big in fact but that doesn't mean we can't mess around with it and see what we can come up with, i'm interested in making small animated gifs of keyboard characters and that's exactly what i'm going to showcase here
 
+<br>
+
 ## how to create an image using characters with imagemagick?
 this couldn't be more easier, we'll use the program `convert` (in some version it's called magick) to achieve this
 ```
@@ -13,6 +15,8 @@ as you can see `-gravity center` is supposed to center our character vertically 
 convert -gravity center -background yellow -fill black -size 30x30 caption:"A" -trim -extent 30x30 A.jpg
 ```
 ![A-B](temp/A-B.jpg)
+
+<br>
 
 ## output all of the characters in a for loop
 now that we know how to output an image we'll use a for loop to convert all the numbers and alphabet characters in lower and higher case
@@ -89,6 +93,8 @@ we also used a custom font with `-font` called `nerd.ttf` which was actually `Ca
 
 the mono in that font name refers to every character taking the same width as other, these fonts are typically used in ascii art, terminal emulators and code editors to easily be able to read them but i'm using the mono variant because it's easier to fit into the image
 
+<br>
+
 ## printing special characters
 special characters are harder to work with since they are not aload to be used in file names in windows specially so because we want to have a cross-platform solution we convert their file names to their hex counterparts, note that this command is a zsh exclusive command and doesn't work on bash
 ```
@@ -128,6 +134,8 @@ for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; do printf -v he
 ![7E](images/7E.jpg)
 
 notice the segmented ranges in our for loop ``{\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~}`` the reason for this is that we don't want duplicate characters as our normal characters above so we exclude the ranges they are in withing our for loop, if you don't care about file names you can do ``{" "..~}`` and combine both steps together
+
+<br>
 
 ## animating the characters
 so far we've been working with static image but let's change all of that and use ffmpeg to make a simple animating, we'll combine two for loops together one for the degrees of hue change (which changes the color of the images) and one for ffmpeg to iterate thru our images
@@ -211,6 +219,8 @@ notice that the same pattern that we used when converting the input images is us
 ![Y](gifs/Y.gif)
 ![Z](gifs/Z.gif)
 
+<br>
+
 ## animating special characters
 the same principles applies here, we just need to adjust our commands a bit, first the ffmpeg command
 ```
@@ -254,3 +264,7 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![7C](gifs/7C.gif)
 ![7D](gifs/7D.gif)
 ![7E](gifs/7E.gif)
+
+<br>
+
+##### more examples coming soon
