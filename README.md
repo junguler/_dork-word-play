@@ -792,7 +792,7 @@ for i in *.gif ; do mkdir bw-inv ; ffmpeg -i $i -vf hue=s=0,negate bw-inv/B-$i ;
 <br>
 
 ## rotate your characters
-convert has a native flag for rotating images and in our case characters so let's use to create these images and iteratre thru them all with rotation
+convert has a native flag for rotating images and in our case characters so let's use it to create these images and iteratre thru them all with rotation
 
 ```
 for h in {30..360..30} ; for i in {a..z} {A..Z} {0..9} ; do convert -gravity center -trim -background blue -fill cyan -font ../nerd.ttf -size 30x30 caption:$i -rotate $h -extent 30x30 $h-$i.jpg ; done
@@ -804,7 +804,7 @@ and for special characters
 for h in {30..360..30} ; for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background blue -fill cyan -rotate $h -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char $h-$hex.jpg ; done
 ```
 
-for turning everything counter clock wise just add a negative sign `-` before `$h` like this `-rotate -$h` in both both command to achieve this, zero pad these characters and lets get to converting them
+for turning everything counter-clock wise just add a negative sign `-` before `$h` like this `-rotate -$h` in both commands to achieve this, zero pad these characters and lets get to converting them
 
 ```
 for m in {a..z} {A..Z} {0..9} ; do convert *-$m.jpg RR-$m.gif ; done
