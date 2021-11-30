@@ -19,6 +19,7 @@ note: there are a lot of little images and gifs need to be loaded for this page 
  * [invert your gifs](https://github.com/junguler/_dork-char-anima#invert-your-output-gifs)
  * [scroll your gifs](https://github.com/junguler/_dork-char-anima#scroll-your-gifs)
  * [combine multiple filters](https://github.com/junguler/_dork-char-anima#combine-multiple-filters)
+ * [rotate your characters](https://github.com/junguler/_dork-char-anima#rotate-your-characters)
 
 <br>
 
