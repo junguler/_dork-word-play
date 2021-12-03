@@ -20,6 +20,7 @@ note: there are a lot of little images and gifs need to be loaded for this page 
  * [scroll your gifs](https://github.com/junguler/_dork-char-anima#scroll-your-gifs)
  * [combine multiple filters](https://github.com/junguler/_dork-char-anima#combine-multiple-filters)
  * [rotate your characters](https://github.com/junguler/_dork-char-anima#rotate-your-characters)
+ * [shades of grey as background colors](https://github.com/junguler/_dork-char-anima#using-shades-of-grey-as-background-color)
 
 <br>
 
