@@ -800,13 +800,13 @@ for h in {30..360..30} ; for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {
 for turning everything counter-clock wise just add a negative sign `-` before `$h` like this `-rotate -$h` in both commands to achieve this, zero pad these characters and lets get to converting them
 
 ```
-for m in {a..z} {A..Z} {0..9} ; do convert *-$m.jpg RR-$m.gif ; done
+for m in {a..z} {A..Z} {0..9} ; do convert $(ls -v *-$m.jpg) RR-$m.gif ; done
 ```
 
 and for special characters
 
 ```
-for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert *-$m.jpg RR-$m.gif ; done
+for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert $(ls -v *-$m.jpg) RR-$m.gif ; done
 ```
 
 same two commands can be run on your counter-clock rotation image sequences
