@@ -1004,4 +1004,117 @@ same two commands can be run on your counter-clock rotation image sequences
 
 <br>
 
+## using shades of grey as background color
+imagemagick uses a wide variety of color values and names as input, look [here](https://imagemagick.org/script/color.php) for a complete explanation, but the easiest way to use this is by choosing color names, for the shades of colors specifically there are grey0 which is a black color to grey100 which is a white color and everything between grey1 and grey99 are shades of grey, knwoing this we can easily loop thru them in a for loop like this 
+```
+for i in {0..9} {a..z} {A..Z} ; for g in {0..100..10} ; do convert -gravity center -trim -background grey50 -fill grey$g -font ../nerd.ttf -size 30x30 caption:$i -extent 30x30 $g-$i.jpg ; done
+```
+as you can see we just need to loop thru the numbers and append them to the grey word in the -fill flag `-fill grey$g` we also only use every 10th number in the loop for a total of 10 frames, the background color stays the same as a nuteral grey50, now for converting
+```
+for m in {a..z} {A..Z} {0..9} ; do convert $(ls -v *-$m.jpg) $m.gif ; done
+```
+for special characters do 
+```
+for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background grey50 -fill grey$g -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char $g-$hex.jpg ; done
+```
+```
+for m in for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert $(ls -v *-$m.jpg) g-$m.gif ; done
+```
+
+![g-0](gifs/grey/g-0.gif)
+![g-1](gifs/grey/g-1.gif)
+![g-2](gifs/grey/g-2.gif)
+![g-3](gifs/grey/g-3.gif)
+![g-4](gifs/grey/g-4.gif)
+![g-5](gifs/grey/g-5.gif)
+![g-6](gifs/grey/g-6.gif)
+![g-7](gifs/grey/g-7.gif)
+![g-8](gifs/grey/g-8.gif)
+![g-9](gifs/grey/g-9.gif)
+![g-21](gifs/grey/g-21.gif)
+![g-22](gifs/grey/g-22.gif)
+![g-23](gifs/grey/g-23.gif)
+![g-24](gifs/grey/g-24.gif)
+![g-25](gifs/grey/g-25.gif)
+![g-26](gifs/grey/g-26.gif)
+![g-27](gifs/grey/g-27.gif)
+![g-28](gifs/grey/g-28.gif)
+![g-29](gifs/grey/g-29.gif)
+![g-2A](gifs/grey/g-2A.gif)
+![g-2B](gifs/grey/g-2B.gif)
+![g-2C](gifs/grey/g-2C.gif)
+![g-2D](gifs/grey/g-2D.gif)
+![g-2E](gifs/grey/g-2E.gif)
+![g-2F](gifs/grey/g-2F.gif)
+![g-3A](gifs/grey/g-3A.gif)
+![g-3B](gifs/grey/g-3B.gif)
+![g-3C](gifs/grey/g-3C.gif)
+![g-3D](gifs/grey/g-3D.gif)
+![g-3E](gifs/grey/g-3E.gif)
+![g-3F](gifs/grey/g-3F.gif)
+![g-40](gifs/grey/g-40.gif)
+![g-5B](gifs/grey/g-5B.gif)
+![g-5C](gifs/grey/g-5C.gif)
+![g-5D](gifs/grey/g-5D.gif)
+![g-5E](gifs/grey/g-5E.gif)
+![g-60](gifs/grey/g-60.gif)
+![g-7B](gifs/grey/g-7B.gif)
+![g-7C](gifs/grey/g-7C.gif)
+![g-7D](gifs/grey/g-7D.gif)
+![g-7E](gifs/grey/g-7E.gif)
+![g-a](gifs/grey/g-a.gif)
+![g-A](gifs/grey/g-A.gif)
+![g-b](gifs/grey/g-b.gif)
+![g-B](gifs/grey/g-B.gif)
+![g-c](gifs/grey/g-c.gif)
+![g-C](gifs/grey/g-C.gif)
+![g-d](gifs/grey/g-d.gif)
+![g-D](gifs/grey/g-D.gif)
+![g-e](gifs/grey/g-e.gif)
+![g-E](gifs/grey/g-E.gif)
+![g-f](gifs/grey/g-f.gif)
+![g-F](gifs/grey/g-F.gif)
+![g-g](gifs/grey/g-g.gif)
+![g-G](gifs/grey/g-G.gif)
+![g-h](gifs/grey/g-h.gif)
+![g-H](gifs/grey/g-H.gif)
+![g-i](gifs/grey/g-i.gif)
+![g-I](gifs/grey/g-I.gif)
+![g-j](gifs/grey/g-j.gif)
+![g-J](gifs/grey/g-J.gif)
+![g-k](gifs/grey/g-k.gif)
+![g-K](gifs/grey/g-K.gif)
+![g-l](gifs/grey/g-l.gif)
+![g-L](gifs/grey/g-L.gif)
+![g-m](gifs/grey/g-m.gif)
+![g-M](gifs/grey/g-M.gif)
+![g-n](gifs/grey/g-n.gif)
+![g-N](gifs/grey/g-N.gif)
+![g-o](gifs/grey/g-o.gif)
+![g-O](gifs/grey/g-O.gif)
+![g-p](gifs/grey/g-p.gif)
+![g-P](gifs/grey/g-P.gif)
+![g-q](gifs/grey/g-q.gif)
+![g-Q](gifs/grey/g-Q.gif)
+![g-r](gifs/grey/g-r.gif)
+![g-R](gifs/grey/g-R.gif)
+![g-s](gifs/grey/g-s.gif)
+![g-S](gifs/grey/g-S.gif)
+![g-t](gifs/grey/g-t.gif)
+![g-T](gifs/grey/g-T.gif)
+![g-u](gifs/grey/g-u.gif)
+![g-U](gifs/grey/g-U.gif)
+![g-v](gifs/grey/g-v.gif)
+![g-V](gifs/grey/g-V.gif)
+![g-w](gifs/grey/g-w.gif)
+![g-W](gifs/grey/g-W.gif)
+![g-x](gifs/grey/g-x.gif)
+![g-X](gifs/grey/g-X.gif)
+![g-y](gifs/grey/g-y.gif)
+![g-Y](gifs/grey/g-Y.gif)
+![g-z](gifs/grey/g-z.gif)
+![g-Z](gifs/grey/g-Z.gif)
+
+<br>
+
 ###### more examples coming soon
