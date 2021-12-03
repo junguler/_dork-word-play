@@ -799,7 +799,7 @@ and for special characters
 for h in {30..360..30} ; for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background blue -fill cyan -rotate $h -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char $h-$hex.jpg ; done
 ```
 
-for turning everything counter-clock wise just add a negative sign `-` before `$h` like this `-rotate -$h` in both commands to achieve this, zero pad these characters and lets get to converting them
+for turning everything counter-clock wise just add a negative sign `-` before `$h` like this `-rotate -$h` in both commands to achieve this, lets get to converting these
 
 ```
 for m in {a..z} {A..Z} {0..9} ; do convert $(ls -v *-$m.jpg) RR-$m.gif ; done
