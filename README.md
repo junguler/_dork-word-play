@@ -165,16 +165,11 @@ for h in {30..360..30} ; for i in {a..z}.jpg {A..Z}.jpg {0..9}.jpg ; do mkdir ou
 
 we also made a `output` folder and put the output images inside it to keep things orginized, now cd into that folder ``cd output/``
 
-we need to pad a zero before filenames because the shell doesn't read files numberically and doesn't know the number 30 in filenames comes before 120 for example
-```
-for x in *.jpg ; do mv $x `printf %03d-%s ${x%-*} ${x##*-}` ; done 
-```
-
 now we are ready to animate these image sequences using the `convert` program
 ```
-for m in {a..z} {A..Z} {0..9} ; do convert *-$m.jpg $m.gif ; done 
+for m in {a..z} {A..Z} {0..9} ; do convert $(ls -v *-$m.jpg) $m.gif ; done 
 ```
-notice that the same pattern that we used when converting the input images is used for outputing the animations
+notice that the same pattern that we used when converting the input images is used for outputing the animations, we also used `ls -v` here to sort filename numberically.
 
 ![0](gifs/0.gif)
 ![1](gifs/1.gif)
@@ -246,11 +241,9 @@ the same principles applies here, we just need to adjust our commands a bit, fir
 ```
 for h in {30..360..30} ; for i in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do mkdir output2 ; ffmpeg -i $i.jpg -vf hue=h=$h output2/$h-$i.jpg ; done
 ```
-because we only want speciall characters and don't need duplicates we specially named every output file we need, we also made a new output2 folder to keep things orginized, cd into the folder like before ``cd output2/`` and zero pad them just like before ``for x in *.jpg ; do mv $x `printf %03d-%s ${x%-*} ${x##*-}` ; done``
-
-now lets convert them to animated gifs
+because we only want speciall characters and don't need duplicates we specially named every output file we need, we also made a new output2 folder to keep things orginized, cd into the folder like before, now lets convert them to animated gifs
 ```
-for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert *-$m.jpg $m.gif ; done
+for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert $(ls -v *-$m.jpg) $m.gif ; done
 ```
 
 ![21](gifs/21.gif)
