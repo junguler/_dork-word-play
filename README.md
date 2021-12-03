@@ -153,7 +153,7 @@ for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; do printf -v he
 ![7D](images/7D.jpg)
 ![7E](images/7E.jpg)
 
-notice the segmented ranges in our for loop ``{\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~}`` the reason for this is that we don't want duplicate characters as our normal characters above so we exclude the ranges they are in within our for loop, if you don't care about file names you can do ``{" "..~}`` and combine both steps together
+notice the segmented ranges in our for loop ``{\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~}`` the reason for this is that we don't want duplicate characters as our normal characters above so we exclude the ranges they are in within our for loop, if you don't care about file names you can do ``{\!..~}`` and combine both steps together
 
 <br>
 
