@@ -169,7 +169,7 @@ now we are ready to animate these image sequences using the `convert` program
 ```
 for m in {a..z} {A..Z} {0..9} ; do convert $(ls -v *-$m.jpg) $m.gif ; done 
 ```
-notice that the same pattern that we used when converting the input images is used for outputing the animations, we also used `ls -v` here to sort filename numberically.
+notice that the same pattern that we used when converting the input images is used for outputing the animations, we also used `ls -v` here to sort filenames numberically, if you don't do this the shell doesn't really sort filenames correctly and only sort by the first digit number, for example 20.jpg is placed earlier than 3.jpg
 
 ![0](gifs/0.gif)
 ![1](gifs/1.gif)
