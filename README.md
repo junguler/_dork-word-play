@@ -24,7 +24,7 @@ note: there are a lot of little images and gifs need to be loaded for this page 
 <br>
 
 ## how to create an image using characters with imagemagick?
-this couldn't be more easier, we'll use the program `convert` (in some version it's called magick) to achieve this
+this couldn't be more easier, we'll use the program `convert` (in the newest versions it's called magick so if you don't have the convert commandline program just change convert to magick in the commands) to achieve this
 ```
 convert -gravity center -background yellow -fill black -size 30x30 caption:"A" A.jpg
 ```
