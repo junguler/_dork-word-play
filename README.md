@@ -782,6 +782,8 @@ for i in *.gif ; do mkdir bw-inv ; ffmpeg -i $i -vf hue=s=0,negate bw-inv/B-$i ;
 ![B-V-z](gifs/v-bw-inv/B-V-z.gif)
 ![B-V-Z](gifs/v-bw-inv/B-V-Z.gif)
 
+same results can be achieved with the convert's own `-negate` for the invert and `-monochrome` for black and white filter but since we already had our gifs made i used ffmpeg because it has more options and filters to play with 
+
 <br>
 
 ## rotate your characters
