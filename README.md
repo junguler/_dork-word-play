@@ -1126,7 +1126,7 @@ convert -adjoin $(ls -v *.jpg) all.gif
 ```
 ![all](temp/all.gif)
 
-if you want to change the framerate of these gifs we can use the `-delay` flag, by default convert has a 100 ticks per seconds which results in a 100 fps per second output, any amount of delay we add gets divided by this number, so 8 makes the framerate 12.5 and 16 makes it 6.25 etc ...
+if you want to change the framerate of these gifs we can use the `-delay` flag, by default convert has a 100 ticks per seconds which results in a 100 frames per second output, any amount of delay we add gets divided by this number, so 8 makes the framerate 12.5 and 16 makes it 6.25 etc ...
 ```
 convert -adjoin -delay 16 $(ls -v *.jpg) all+.gif
 ```
