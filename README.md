@@ -1020,7 +1020,7 @@ for special characters do
 for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background grey50 -fill grey$g -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char $g-$hex.jpg ; done
 ```
 ```
-for m in for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert $(ls -v *-$m.jpg) g-$m.gif ; done
+for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert $(ls -v *-$m.jpg) g-$m.gif ; done
 ```
 
 ![g-0](gifs/grey/g-0.gif)
