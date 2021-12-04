@@ -1132,7 +1132,7 @@ convert -adjoin -delay 16 $(ls -v *.jpg) all+.gif
 ```
 ![all+](temp/all+.gif)
 
-or combine multiple gifs together
+combining multiple gifs together can be done using the same joining method
 ```
 convert -adjoin $(ls -v *.gif) numbers.gif
 ```
