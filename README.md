@@ -22,6 +22,7 @@ note: there are a lot of little images and gifs need to be loaded for this page 
  * [rotate your characters](https://github.com/junguler/_dork-char-anima#rotate-your-characters)
  * [shades of grey as background colors](https://github.com/junguler/_dork-char-anima#using-shades-of-grey-as-background-color)
  * [merge multiple files together](https://github.com/junguler/_dork-char-anima#merge-multiple-files-together)
+ * [make a smooth gradient motion](https://github.com/junguler/_dork-char-anima#making-a-smooth-gradient-animation-the-hard-way)
 
 <br>
 
