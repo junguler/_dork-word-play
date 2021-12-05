@@ -1140,4 +1140,205 @@ convert -adjoin $(ls -v *.gif) numbers.gif
 
 <br>
 
+## making a smooth gradient animation, the hard way
+in one of the above sections i showed how to use ffmpeg's hue filter to make a gradient with colors, it gets the job done but sometimes you want more control with exact colors you want to use
+
+imagemagick gives many options for specifying colors, in our case we'll use `rgb(100%, 0%, 0%)` which takes percentages as RGB values, lets start by changing the colors from red `rgb(100%, 0%, 0%)` to magenta `rgb(100%, 0%, 100%)` with 10% increments
+```
+for i in {a..z} {A..Z} {0..9} ; for g in {0..100..10} ; do convert -gravity center -trim -background "rgb(100%,0%,$g%)" -fill white -font ../nerd.ttf -size 30x30 caption:$i -extent 30x30 A-$g-$i.jpg ; done
+```
+```
+for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background "rgb(100%,0%,$g%)" -fill white -font ../nerd.ttf -size 50x50 -extent 50x50 caption:$char A-$g-$hex.jpg ; done
+```
+
+now, make a loop that changes magenta `rgb(100%, 0%, 100%)` to blue `rgb(0%, 0%, 100%)`
+```
+for i in {a..z} {A..Z} {0..9} ; for g in {100..0..10} ; do convert -gravity center -trim -background "rgb($g%,0%,100%)" -fill white -font ../nerd.ttf -size 30x30 caption:$i -extent 30x30 B-$g-$i.jpg ; done
+```
+```
+for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background "rgb($g%,0%,100%)" -fill white -font ../nerd.ttf -size 50x50 -extent 50x50 caption:$char B-$g-$hex.jpg ; done
+```
+
+now convert your first batch of images to gifs
+```
+for m in {a..z} {A..Z} {0..9} ; do convert $(ls -v A-*-$m.jpg) A1-$m.gif ; done
+```
+```
+for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert $(ls -v A-*-$m.jpg) A1-$m.gif ; done   
+```
+
+![A1-0](gifs/gradient/01/A1-0.gif)
+![A1-1](gifs/gradient/01/A1-1.gif)
+![A1-2](gifs/gradient/01/A1-2.gif)
+![A1-3](gifs/gradient/01/A1-3.gif)
+![A1-4](gifs/gradient/01/A1-4.gif)
+![A1-5](gifs/gradient/01/A1-5.gif)
+![A1-6](gifs/gradient/01/A1-6.gif)
+![A1-7](gifs/gradient/01/A1-7.gif)
+![A1-8](gifs/gradient/01/A1-8.gif)
+![A1-9](gifs/gradient/01/A1-9.gif)
+
+convert the second batch of images to gifs
+```
+for m in {a..z} {A..Z} {0..9} ; do convert $(ls -vr B-*-$m.jpg) A2-$m.gif ; done
+```
+```
+for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert $(ls -vr B-*-$m.jpg) A2-$m.gif ; done  
+```
+
+note that we use the `-r` flag with ls to sort and feed images in reverse for the second batch of gifs
+
+![A1-0](gifs/gradient/02/A1-0.gif)
+![A1-1](gifs/gradient/02/A1-1.gif)
+![A1-2](gifs/gradient/02/A1-2.gif)
+![A1-3](gifs/gradient/02/A1-3.gif)
+![A1-4](gifs/gradient/02/A1-4.gif)
+![A1-5](gifs/gradient/02/A1-5.gif)
+![A1-6](gifs/gradient/02/A1-6.gif)
+![A1-7](gifs/gradient/02/A1-7.gif)
+![A1-8](gifs/gradient/02/A1-8.gif)
+![A1-9](gifs/gradient/02/A1-9.gif)
+
+combine both sets of gifs together
+```
+for m in {a..z} {A..Z} {0..9} ; do convert -adjoin A1-$m.gif A2-$m.gif A3-$m.gif ; done
+```
+```
+for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert -adjoin A1-$m.gif A2-$m.gif A3-$m.gif ; done
+```
+
+![A1-0](gifs/gradient/03/A1-0.gif)
+![A1-1](gifs/gradient/03/A1-1.gif)
+![A1-2](gifs/gradient/03/A1-2.gif)
+![A1-3](gifs/gradient/03/A1-3.gif)
+![A1-4](gifs/gradient/03/A1-4.gif)
+![A1-5](gifs/gradient/03/A1-5.gif)
+![A1-6](gifs/gradient/03/A1-6.gif)
+![A1-7](gifs/gradient/03/A1-7.gif)
+![A1-8](gifs/gradient/03/A1-8.gif)
+![A1-9](gifs/gradient/03/A1-9.gif)
+
+now make a duplicate of these combined files to have a smooth back and forth motion
+```
+for m in {a..z} {A..Z} {0..9} ; do convert -reverse A3-$m.gif A4-$m.gif ; done
+```
+```
+for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert -reverse A3-$m.gif A4-$m.gif ; done
+```
+
+![A1-0](gifs/gradient/04/A1-0.gif)
+![A1-1](gifs/gradient/04/A1-1.gif)
+![A1-2](gifs/gradient/04/A1-2.gif)
+![A1-3](gifs/gradient/04/A1-3.gif)
+![A1-4](gifs/gradient/04/A1-4.gif)
+![A1-5](gifs/gradient/04/A1-5.gif)
+![A1-6](gifs/gradient/04/A1-6.gif)
+![A1-7](gifs/gradient/04/A1-7.gif)
+![A1-8](gifs/gradient/04/A1-8.gif)
+![A1-9](gifs/gradient/04/A1-9.gif)
+
+now combine your 3rd and 4th batches of gifs to get the final result
+```
+for m in {a..z} {A..Z} {0..9} ; do convert -adjoin A3-$m.gif A4-$m.gif A5-$m.gif ; done
+```
+```
+for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert -adjoin A3-$m.gif A4-$m.gif A5-$m.gif ; done
+```
+
+![A1-0](gifs/gradient/A1-0.gif)
+![A1-1](gifs/gradient/A1-1.gif)
+![A1-2](gifs/gradient/A1-2.gif)
+![A1-3](gifs/gradient/A1-3.gif)
+![A1-4](gifs/gradient/A1-4.gif)
+![A1-5](gifs/gradient/A1-5.gif)
+![A1-6](gifs/gradient/A1-6.gif)
+![A1-7](gifs/gradient/A1-7.gif)
+![A1-8](gifs/gradient/A1-8.gif)
+![A1-9](gifs/gradient/A1-9.gif)
+![A1-21](gifs/gradient/A1-21.gif)
+![A1-22](gifs/gradient/A1-22.gif)
+![A1-23](gifs/gradient/A1-23.gif)
+![A1-24](gifs/gradient/A1-24.gif)
+![A1-25](gifs/gradient/A1-25.gif)
+![A1-26](gifs/gradient/A1-26.gif)
+![A1-27](gifs/gradient/A1-27.gif)
+![A1-28](gifs/gradient/A1-28.gif)
+![A1-29](gifs/gradient/A1-29.gif)
+![A1-2A](gifs/gradient/A1-2A.gif)
+![A1-2B](gifs/gradient/A1-2B.gif)
+![A1-2C](gifs/gradient/A1-2C.gif)
+![A1-2D](gifs/gradient/A1-2D.gif)
+![A1-2E](gifs/gradient/A1-2E.gif)
+![A1-2F](gifs/gradient/A1-2F.gif)
+![A1-3A](gifs/gradient/A1-3A.gif)
+![A1-3B](gifs/gradient/A1-3B.gif)
+![A1-3C](gifs/gradient/A1-3C.gif)
+![A1-3D](gifs/gradient/A1-3D.gif)
+![A1-3E](gifs/gradient/A1-3E.gif)
+![A1-3F](gifs/gradient/A1-3F.gif)
+![A1-40](gifs/gradient/A1-40.gif)
+![A1-5B](gifs/gradient/A1-5B.gif)
+![A1-5C](gifs/gradient/A1-5C.gif)
+![A1-5D](gifs/gradient/A1-5D.gif)
+![A1-5E](gifs/gradient/A1-5E.gif)
+![A1-60](gifs/gradient/A1-60.gif)
+![A1-7B](gifs/gradient/A1-7B.gif)
+![A1-7C](gifs/gradient/A1-7C.gif)
+![A1-7D](gifs/gradient/A1-7D.gif)
+![A1-7E](gifs/gradient/A1-7E.gif)
+![A1-a](gifs/gradient/A1-a.gif)
+![A1-A](gifs/gradient/A1-A.gif)
+![A1-b](gifs/gradient/A1-b.gif)
+![A1-B](gifs/gradient/A1-B.gif)
+![A1-c](gifs/gradient/A1-c.gif)
+![A1-C](gifs/gradient/A1-C.gif)
+![A1-d](gifs/gradient/A1-d.gif)
+![A1-D](gifs/gradient/A1-D.gif)
+![A1-e](gifs/gradient/A1-e.gif)
+![A1-E](gifs/gradient/A1-E.gif)
+![A1-f](gifs/gradient/A1-f.gif)
+![A1-F](gifs/gradient/A1-F.gif)
+![A1-g](gifs/gradient/A1-g.gif)
+![A1-G](gifs/gradient/A1-G.gif)
+![A1-h](gifs/gradient/A1-h.gif)
+![A1-H](gifs/gradient/A1-H.gif)
+![A1-i](gifs/gradient/A1-i.gif)
+![A1-I](gifs/gradient/A1-I.gif)
+![A1-j](gifs/gradient/A1-j.gif)
+![A1-J](gifs/gradient/A1-J.gif)
+![A1-k](gifs/gradient/A1-k.gif)
+![A1-K](gifs/gradient/A1-K.gif)
+![A1-l](gifs/gradient/A1-l.gif)
+![A1-L](gifs/gradient/A1-L.gif)
+![A1-m](gifs/gradient/A1-m.gif)
+![A1-M](gifs/gradient/A1-M.gif)
+![A1-n](gifs/gradient/A1-n.gif)
+![A1-N](gifs/gradient/A1-N.gif)
+![A1-o](gifs/gradient/A1-o.gif)
+![A1-O](gifs/gradient/A1-O.gif)
+![A1-p](gifs/gradient/A1-p.gif)
+![A1-P](gifs/gradient/A1-P.gif)
+![A1-q](gifs/gradient/A1-q.gif)
+![A1-Q](gifs/gradient/A1-Q.gif)
+![A1-r](gifs/gradient/A1-r.gif)
+![A1-R](gifs/gradient/A1-R.gif)
+![A1-s](gifs/gradient/A1-s.gif)
+![A1-S](gifs/gradient/A1-S.gif)
+![A1-t](gifs/gradient/A1-t.gif)
+![A1-T](gifs/gradient/A1-T.gif)
+![A1-u](gifs/gradient/A1-u.gif)
+![A1-U](gifs/gradient/A1-U.gif)
+![A1-v](gifs/gradient/A1-v.gif)
+![A1-V](gifs/gradient/A1-V.gif)
+![A1-w](gifs/gradient/A1-w.gif)
+![A1-W](gifs/gradient/A1-W.gif)
+![A1-x](gifs/gradient/A1-x.gif)
+![A1-X](gifs/gradient/A1-X.gif)
+![A1-y](gifs/gradient/A1-y.gif)
+![A1-Y](gifs/gradient/A1-Y.gif)
+![A1-z](gifs/gradient/A1-z.gif)
+![A1-Z](gifs/gradient/A1-Z.gif)
+
+<br>
+
 ###### more examples coming soon
