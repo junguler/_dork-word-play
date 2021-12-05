@@ -1152,6 +1152,8 @@ for i in {a..z} {A..Z} {0..9} ; for g in {0..100..10} ; do convert -gravity cent
 for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background "rgb(100%,0%,$g%)" -fill white -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char A-$g-$hex.jpg ; done
 ```
 
+<br>
+
 now, make a loop that changes magenta `rgb(100%, 0%, 100%)` to blue `rgb(0%, 0%, 100%)`
 ```
 for i in {a..z} {A..Z} {0..9} ; for g in {100..0..10} ; do convert -gravity center -trim -background "rgb($g%,0%,100%)" -fill white -font ../nerd.ttf -size 30x30 caption:$i -extent 30x30 B-$g-$i.jpg ; done
@@ -1159,6 +1161,8 @@ for i in {a..z} {A..Z} {0..9} ; for g in {100..0..10} ; do convert -gravity cent
 ```
 for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background "rgb($g%,0%,100%)" -fill white -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char B-$g-$hex.jpg ; done
 ```
+
+<br>
 
 now convert your first batch of images to gifs
 ```
@@ -1178,6 +1182,8 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![A1-7](gifs/gradient/01/A1-7.gif)
 ![A1-8](gifs/gradient/01/A1-8.gif)
 ![A1-9](gifs/gradient/01/A1-9.gif)
+
+<br>
 
 convert the second batch of images to gifs
 ```
@@ -1200,6 +1206,8 @@ note that we use the `-r` flag with ls to sort and feed images in reverse for th
 ![A2-8](gifs/gradient/02/A2-8.gif)
 ![A2-9](gifs/gradient/02/A2-9.gif)
 
+<br>
+
 combine both sets of gifs together
 ```
 for m in {a..z} {A..Z} {0..9} ; do convert -adjoin A1-$m.gif A2-$m.gif A3-$m.gif ; done
@@ -1219,7 +1227,9 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![A3-8](gifs/gradient/03/A3-8.gif)
 ![A3-9](gifs/gradient/03/A3-9.gif)
 
-now make a duplicate of these combined files to have a smooth back and forth motion
+<br>
+
+now make a reversed duplicated sets of these gifs to have a smooth back and forth motion in the last step
 ```
 for m in {a..z} {A..Z} {0..9} ; do convert -reverse A3-$m.gif A4-$m.gif ; done
 ```
@@ -1238,7 +1248,9 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![A4-8](gifs/gradient/04/A4-8.gif)
 ![A4-9](gifs/gradient/04/A4-9.gif)
 
-now combine your 3rd and 4th batches of gifs to get the final result
+<br>
+
+finally combine your 3rd and 4th batches of gifs to get the final result
 ```
 for m in {a..z} {A..Z} {0..9} ; do convert -adjoin A3-$m.gif A4-$m.gif A5-$m.gif ; done
 ```
