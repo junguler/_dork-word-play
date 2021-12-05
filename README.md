@@ -1149,7 +1149,7 @@ imagemagick gives many options for specifying colors, in our case we'll use `rgb
 for i in {a..z} {A..Z} {0..9} ; for g in {0..100..10} ; do convert -gravity center -trim -background "rgb(100%,0%,$g%)" -fill white -font ../nerd.ttf -size 30x30 caption:$i -extent 30x30 A-$g-$i.jpg ; done
 ```
 ```
-for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background "rgb(100%,0%,$g%)" -fill white -font ../nerd.ttf -size 50x50 -extent 50x50 caption:$char A-$g-$hex.jpg ; done
+for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background "rgb(100%,0%,$g%)" -fill white -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char A-$g-$hex.jpg ; done
 ```
 
 now, make a loop that changes magenta `rgb(100%, 0%, 100%)` to blue `rgb(0%, 0%, 100%)`
@@ -1157,7 +1157,7 @@ now, make a loop that changes magenta `rgb(100%, 0%, 100%)` to blue `rgb(0%, 0%,
 for i in {a..z} {A..Z} {0..9} ; for g in {100..0..10} ; do convert -gravity center -trim -background "rgb($g%,0%,100%)" -fill white -font ../nerd.ttf -size 30x30 caption:$i -extent 30x30 B-$g-$i.jpg ; done
 ```
 ```
-for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background "rgb($g%,0%,100%)" -fill white -font ../nerd.ttf -size 50x50 -extent 50x50 caption:$char B-$g-$hex.jpg ; done
+for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background "rgb($g%,0%,100%)" -fill white -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char B-$g-$hex.jpg ; done
 ```
 
 now convert your first batch of images to gifs
