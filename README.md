@@ -793,13 +793,13 @@ the same results can be achieved with the convert's own `-negate` for the invert
 convert has a native flag for rotating images and in our case characters so let's use it to create these images and iteratre thru them all with rotation
 
 ```
-for h in {30..360..30} ; for i in {a..z} {A..Z} {0..9} ; do convert -gravity center -trim -background blue -fill cyan -font ../nerd.ttf -size 30x30 caption:$i -rotate $h -extent 30x30 $h-$i.jpg ; done
+for h in {30..360..30} ; for i in {a..z} {A..Z} {0..9} ; do convert -gravity center -trim -background blue -fill cyan -font ./nerd.ttf -size 30x30 caption:$i -rotate $h -extent 30x30 $h-$i.jpg ; done
 ```
 
 and for special characters
 
 ```
-for h in {30..360..30} ; for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background blue -fill cyan -rotate $h -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char $h-$hex.jpg ; done
+for h in {30..360..30} ; for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background blue -fill cyan -rotate $h -font ./nerd.ttf -size 30x30 -extent 30x30 caption:$char $h-$hex.jpg ; done
 ```
 
 for turning everything counter-clock wise just add a negative sign `-` before `$h` like this `-rotate -$h` in both commands to achieve this, lets get to converting these
@@ -1010,7 +1010,7 @@ same two commands can be run on your counter-clock rotation image sequences
 ## using shades of grey as background color
 imagemagick uses a wide variety of color values and names as input, look [here](https://imagemagick.org/script/color.php) for a complete explanation, but the easiest way to use this is by choosing color names, for the shades of grey specifically there are grey0 which is a black color to grey100 which is a white color and everything between grey1 and grey99 are shades of grey, knwoing this we can easily loop thru them in a for loop like this 
 ```
-for i in {0..9} {a..z} {A..Z} ; for g in {0..100..10} ; do convert -gravity center -trim -background grey50 -fill grey$g -font ../nerd.ttf -size 30x30 caption:$i -extent 30x30 $g-$i.jpg ; done
+for i in {0..9} {a..z} {A..Z} ; for g in {0..100..10} ; do convert -gravity center -trim -background grey50 -fill grey$g -font ./nerd.ttf -size 30x30 caption:$i -extent 30x30 $g-$i.jpg ; done
 ```
 as you can see we just need to loop thru the numbers and append them to the grey word in the -fill flag `-fill grey$g` we also only use every 10th number in the loop for a total of 10 frames, the background color stays the same as a nuteral grey50, now for converting
 ```
@@ -1018,7 +1018,7 @@ for m in {a..z} {A..Z} {0..9} ; do convert $(ls -v *-$m.jpg) $m.gif ; done
 ```
 for special characters do 
 ```
-for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background grey50 -fill grey$g -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char $g-$hex.jpg ; done
+for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background grey50 -fill grey$g -font ./nerd.ttf -size 30x30 -extent 30x30 caption:$char $g-$hex.jpg ; done
 ```
 ```
 for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert $(ls -v *-$m.jpg) g-$m.gif ; done
@@ -1146,20 +1146,20 @@ in one of the above sections i showed how to use ffmpeg's hue filter to make a g
 
 imagemagick gives many options for specifying colors, in our case we'll use `rgb(100%, 0%, 0%)` which takes percentages as RGB values, lets start by changing the colors from red `rgb(100%, 0%, 0%)` to magenta `rgb(100%, 0%, 100%)` with 10% increments
 ```
-for i in {a..z} {A..Z} {0..9} ; for g in {0..100..10} ; do convert -gravity center -trim -background "rgb(100%,0%,$g%)" -fill white -font ../nerd.ttf -size 30x30 caption:$i -extent 30x30 A-$g-$i.jpg ; done
+for i in {a..z} {A..Z} {0..9} ; for g in {0..100..10} ; do convert -gravity center -trim -background "rgb(100%,0%,$g%)" -fill white -font ./nerd.ttf -size 30x30 caption:$i -extent 30x30 A-$g-$i.jpg ; done
 ```
 ```
-for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background "rgb(100%,0%,$g%)" -fill white -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char A-$g-$hex.jpg ; done
+for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background "rgb(100%,0%,$g%)" -fill white -font ./nerd.ttf -size 30x30 -extent 30x30 caption:$char A-$g-$hex.jpg ; done
 ```
 
 <br>
 
 now, make a loop that changes magenta `rgb(100%, 0%, 100%)` to blue `rgb(0%, 0%, 100%)`
 ```
-for i in {a..z} {A..Z} {0..9} ; for g in {100..0..10} ; do convert -gravity center -trim -background "rgb($g%,0%,100%)" -fill white -font ../nerd.ttf -size 30x30 caption:$i -extent 30x30 B-$g-$i.jpg ; done
+for i in {a..z} {A..Z} {0..9} ; for g in {100..0..10} ; do convert -gravity center -trim -background "rgb($g%,0%,100%)" -fill white -font ./nerd.ttf -size 30x30 caption:$i -extent 30x30 B-$g-$i.jpg ; done
 ```
 ```
-for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background "rgb($g%,0%,100%)" -fill white -font ../nerd.ttf -size 30x30 -extent 30x30 caption:$char B-$g-$hex.jpg ; done
+for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in {0..100..10} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background "rgb($g%,0%,100%)" -fill white -font ./nerd.ttf -size 30x30 -extent 30x30 caption:$char B-$g-$hex.jpg ; done
 ```
 
 <br>
