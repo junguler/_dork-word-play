@@ -22,7 +22,7 @@ this tutorial markdown was made possible partially by a helpful [comment on redd
  * [scroll your gifs](https://github.com/junguler/_dork-word-play#scroll-your-gifs)
  * [combine multiple filters](https://github.com/junguler/_dork-word-play#combine-multiple-filters)
  * [rotate your characters](https://github.com/junguler/_dork-word-play#rotate-your-characters)
- * [shades of grey as background colors](https://github.com/junguler/_dork-word-play#using-shades-of-grey-as-background-color)
+ * [shades of grey as colors](https://github.com/junguler/_dork-word-play#using-shades-of-grey-as-color)
  * [merge multiple files together](https://github.com/junguler/_dork-word-play#merge-multiple-files-together)
  * [make a smooth gradient motion](https://github.com/junguler/_dork-word-play#making-a-smooth-gradient-animation-the-hard-way)
  * [variable sizes](https://github.com/junguler/_dork-word-play#variable-sizes)
@@ -1011,7 +1011,7 @@ same two commands can be run on your counter-clock rotation image sequences
 
 <br>
 
-## using shades of grey as background color
+## using shades of grey as color
 imagemagick uses a wide variety of color values and names as input, look [here](https://imagemagick.org/script/color.php) for a complete explanation, but the easiest way to use this is by choosing color names, for the shades of grey specifically there are grey0 which is a black color to grey100 which is a white color and everything between grey1 and grey99 are shades of grey, knwoing this we can easily loop thru them in a for loop like this 
 ```
 for i in {0..9} {a..z} {A..Z} ; for g in {0..100..10} ; do convert -gravity center -trim -background grey50 -fill grey$g -font ./nerd.ttf -size 30x30 caption:$i -extent 30x30 $g-$i.jpg ; done
