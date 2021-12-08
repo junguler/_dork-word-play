@@ -7,7 +7,7 @@
 
 imagemagick is massive, it's too big in fact but that doesn't mean we can't mess around with it and see what we can come up with, i'm interested in making small animated gifs of keyboard characters and that's exactly what i'm going to showcase here
 
-note: there are a lot of little gifs need to be loaded for this page to look correctly, if you see any weird behaviour of links not loading just refresh the page and your web browser hopefully caches everything by that time
+note: there are a lot of little gifs need to be loaded for this page to look correctly, if you see any weird behavior of links not loading just refresh the page and your web browser hopefully caches everything by that time
 
 this tutorial markdown was made possible partially by a helpful [comment on reddit](https://www.reddit.com/r/zsh/comments/r44ajo/need_help_converting_special_characters_in_file/) that fixed my problem printing speciall characters and helped giving usable names for them
 
@@ -37,7 +37,7 @@ convert -gravity center -background yellow -fill black -size 30x30 caption:"A" A
 ```
 ![A-A](temp/A-A.jpg)
 
-as you can see `-gravity center` is supposed to center our character vertically and horizontally but it doesn't do that completelt, we can correct this using `-trim` which removes white spcaes in the image and pad it to center with `-extent` and passing the same size as our output image
+as you can see `-gravity center` is supposed to center our character vertically and horizontally but it doesn't do that completely, we can correct this using `-trim` which removes white spaces in the image and pad it to center with `-extent` and passing the same size as our output image
 ```
 convert -gravity center -background yellow -fill black -size 30x30 caption:"A" -trim -extent 30x30 A.jpg
 ```
@@ -116,14 +116,14 @@ for i in {a..z} {A..Z} {0..9} ; do convert -gravity center -trim -background yel
 
 `{a..z} {A..Z} {0..9}` in our for loop tells our shell to iterate thru numbers 0 to 9, characters from a to z and A to Z one by one
 
-we also used a custom font with `-font` called `nerd.ttf` which was actually `Caskaydia Cove Nerd Font Mono` which i renamed for simplicity and put inside the folder i'm making these images, you can also pass the abseloute path to it in your filesystem 
+we also used a custom font with `-font` called `nerd.ttf` which was actually `Caskaydia Cove Nerd Font Mono` which i renamed for simplicity and put inside the folder i'm making these images, you can also pass the absolute path to it in your filesystem 
 
 the mono in that font name refers to every character taking the same width as other, these fonts are typically used in ascii art, terminal emulators and code editors to easily be able to read them but i'm using the mono variant because it's easier to fit into the image
 
 <br>
 
 ## printing special characters
-special characters are harder to work with since they are not aload to be used in file names in windows specially so because we want to have a cross-platform solution we convert their file names to their hex counterparts, note that this command is a zsh exclusive command and doesn't work on bash
+special characters are harder to work with since they are not aloud to be used in file names in windows specially so because we want to have a cross-platform solution we convert their file names to their hex counterparts, note that this command is a zsh exclusive command and doesn't work on bash
 ```
 for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background yellow -fill black -font ./nerd.ttf -size 30x30 -extent 30x30 caption:$char $hex.jpg ; done
 ```
@@ -170,13 +170,13 @@ so far we've been working with static image but let's change all of that and use
 for h in {30..360..30} ; for i in {a..z}.jpg {A..Z}.jpg {0..9}.jpg ; do mkdir output ; ffmpeg -i $i -vf hue=h=$h output/$h-$i ; done
 ```
 
-we also made a `output` folder and put the output images inside it to keep things orginized, now cd into that folder ``cd output/``
+we also made a `output` folder and put the output images inside it to keep things organized, now cd into that folder ``cd output/``
 
 now we are ready to animate these image sequences using the `convert` program
 ```
 for m in {a..z} {A..Z} {0..9} ; do convert $(ls -v *-$m.jpg) $m.gif ; done 
 ```
-notice that the same pattern that we used when converting the input images is used for outputing the animations, we also used `ls -v` here to sort filenames numberically, if you don't do this the shell doesn't really sort filenames correctly and only sort by the first digit number, for example 20.jpg is placed earlier than 3.jpg
+notice that the same pattern that we used when converting the input images is used for outputting the animations, we also used `ls -v` here to sort filenames numerically, if you don't do this the shell doesn't really sort filenames correctly and only sort by the first digit number, for example 20.jpg is placed earlier than 3.jpg
 
 ![0](gifs/0.gif)
 ![1](gifs/1.gif)
@@ -248,7 +248,7 @@ the same principles applies here, we just need to adjust our commands a bit, fir
 ```
 for h in {30..360..30} ; for i in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do mkdir output2 ; ffmpeg -i $i.jpg -vf hue=h=$h output2/$h-$i.jpg ; done
 ```
-because we only want speciall characters and don't need duplicates we specially named every output file we need, we also made a new output2 folder to keep things orginized, cd into the folder like before, now lets convert them to animated gifs
+because we only want specially characters and don't need duplicates we specially named every output file we need, we also made a new output2 folder to keep things organized, cd into the folder like before, now lets convert them to animated gifs
 ```
 for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert $(ls -v *-$m.jpg) $m.gif ; done
 ```
@@ -794,7 +794,7 @@ the same results can be achieved with the convert's own `-negate` for the invert
 <br>
 
 ## rotate your characters
-convert has a native flag for rotating images and in our case characters so let's use it to create these images and iteratre thru them all with rotation
+convert has a native flag for rotating images and in our case characters so let's use it to create these images and iterate thru them all with rotation
 
 ```
 for h in {30..360..30} ; for i in {a..z} {A..Z} {0..9} ; do convert -gravity center -trim -background blue -fill cyan -font ./nerd.ttf -size 30x30 caption:$i -rotate $h -extent 30x30 $h-$i.jpg ; done
@@ -1012,11 +1012,11 @@ same two commands can be run on your counter-clock rotation image sequences
 <br>
 
 ## using shades of grey as color
-imagemagick uses a wide variety of color values and names as input, look [here](https://imagemagick.org/script/color.php) for a complete explanation, but the easiest way to use this is by choosing color names, for the shades of grey specifically there are grey0 which is a black color to grey100 which is a white color and everything between grey1 and grey99 are shades of grey, knwoing this we can easily loop thru them in a for loop like this 
+imagemagick uses a wide variety of color values and names as input, look [here](https://imagemagick.org/script/color.php) for a complete explanation, but the easiest way to use this is by choosing color names, for the shades of grey specifically there are grey0 which is a black color to grey100 which is a white color and everything between grey1 and grey99 are shades of grey, knowing this we can easily loop thru them in a for loop like this 
 ```
 for i in {0..9} {a..z} {A..Z} ; for g in {0..100..10} ; do convert -gravity center -trim -background grey50 -fill grey$g -font ./nerd.ttf -size 30x30 caption:$i -extent 30x30 $g-$i.jpg ; done
 ```
-as you can see we just need to loop thru the numbers and append them to the grey word in the -fill flag `-fill grey$g` we also only use every 10th number in the loop for a total of 10 frames, the background color stays the same as a nuteral grey50, now for converting
+as you can see we just need to loop thru the numbers and append them to the grey word in the -fill flag `-fill grey$g` we also only use every 10th number in the loop for a total of 10 frames, the background color stays the same as a neutral grey50, now for converting
 ```
 for m in {a..z} {A..Z} {0..9} ; do convert $(ls -v *-$m.jpg) $m.gif ; done
 ```
