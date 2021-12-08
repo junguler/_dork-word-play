@@ -26,6 +26,7 @@ this tutorial markdown was made possible partially by a helpful [comment on redd
  * [merge multiple files together](https://github.com/junguler/_dork-word-play#merge-multiple-files-together)
  * [make a smooth gradient motion](https://github.com/junguler/_dork-word-play#making-a-smooth-gradient-animation-the-hard-way)
  * [variable sizes](https://github.com/junguler/_dork-word-play#variable-sizes)
+ * [use multiple fonts](https://github.com/junguler/_dork-word-play#use-multiple-fonts)
 
 <br>
 
