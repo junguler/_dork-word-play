@@ -14,18 +14,18 @@ this tutorial markdown was made possible partially by a helpful [comment on redd
 <br>
 
 ### quick links
- * [output all characters](https://github.com/junguler/_dork-char-anima#output-all-of-the-characters-in-a-for-loop)
- * [output special characters](https://github.com/junguler/_dork-char-anima#printing-special-characters)
- * [animate the characters](https://github.com/junguler/_dork-char-anima#animating-the-characters)
- * [animate the special characters](https://github.com/junguler/_dork-char-anima#animating-special-characters)
- * [invert your gifs](https://github.com/junguler/_dork-char-anima#invert-your-output-gifs)
- * [scroll your gifs](https://github.com/junguler/_dork-char-anima#scroll-your-gifs)
- * [combine multiple filters](https://github.com/junguler/_dork-char-anima#combine-multiple-filters)
- * [rotate your characters](https://github.com/junguler/_dork-char-anima#rotate-your-characters)
- * [shades of grey as background colors](https://github.com/junguler/_dork-char-anima#using-shades-of-grey-as-background-color)
- * [merge multiple files together](https://github.com/junguler/_dork-char-anima#merge-multiple-files-together)
- * [make a smooth gradient motion](https://github.com/junguler/_dork-char-anima#making-a-smooth-gradient-animation-the-hard-way)
- * [variable sizes](https://github.com/junguler/_dork-char-anima#variable-sizes)
+ * [output all characters](https://github.com/junguler/_dork-word-play#output-all-of-the-characters-in-a-for-loop)
+ * [output special characters](https://github.com/junguler/_dork-word-play#printing-special-characters)
+ * [animate the characters](https://github.com/junguler/_dork-word-play#animating-the-characters)
+ * [animate the special characters](https://github.com/junguler/_dork-word-play#animating-special-characters)
+ * [invert your gifs](https://github.com/junguler/_dork-word-play#invert-your-output-gifs)
+ * [scroll your gifs](https://github.com/junguler/_dork-word-play#scroll-your-gifs)
+ * [combine multiple filters](https://github.com/junguler/_dork-word-play#combine-multiple-filters)
+ * [rotate your characters](https://github.com/junguler/_dork-word-play#rotate-your-characters)
+ * [shades of grey as background colors](https://github.com/junguler/_dork-word-play#using-shades-of-grey-as-background-color)
+ * [merge multiple files together](https://github.com/junguler/_dork-word-play#merge-multiple-files-together)
+ * [make a smooth gradient motion](https://github.com/junguler/_dork-word-play#making-a-smooth-gradient-animation-the-hard-way)
+ * [variable sizes](https://github.com/junguler/_dork-word-play#variable-sizes)
 
 <br>
 
