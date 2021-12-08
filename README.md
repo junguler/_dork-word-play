@@ -1675,4 +1675,116 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 
 <br>
 
+## use multiple fonts
+we can use multiple fonts in our for loop, i've included a few nerd fonts in the font folder of this repo, for the simplicity and ease of use the names have been removed for this following command and i only use the two digit numbers at the beginning
+```
+for i in {a..z} {A..Z} {0..9} ; for f in *.ttf ; do convert -gravity center -trim -background grey75 -fill grey25 -font ./$f -size 30x30 caption:$i -extent 30x30 $i-$f.jpg ; done
+```
+```
+for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for f in *.ttf ; do printf -v hex '%02X' $(( #char )) ; convert -gravity center -trim -background grey75 -fill grey25 -font ./$f -size 30x30 -extent 30x30 caption:$char $hex-$f.jpg ; done
+```
+convert the image sequences, using a longer delay of 16
+```
+for m in {a..z} {A..Z} {0..9} ; do convert -delay 16 $(ls -v $m-*.jpg) F-$m.gif ; done
+```
+```
+for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert -delay 16 $(ls -v $m-*.jpg) F-$m.gif ; done
+```
+
+![F-0](gifs/fonts/F-0.gif)
+![F-1](gifs/fonts/F-1.gif)
+![F-2](gifs/fonts/F-2.gif)
+![F-3](gifs/fonts/F-3.gif)
+![F-4](gifs/fonts/F-4.gif)
+![F-5](gifs/fonts/F-5.gif)
+![F-6](gifs/fonts/F-6.gif)
+![F-7](gifs/fonts/F-7.gif)
+![F-8](gifs/fonts/F-8.gif)
+![F-9](gifs/fonts/F-9.gif)
+![F-21](gifs/fonts/F-21.gif)
+![F-22](gifs/fonts/F-22.gif)
+![F-23](gifs/fonts/F-23.gif)
+![F-24](gifs/fonts/F-24.gif)
+![F-25](gifs/fonts/F-25.gif)
+![F-26](gifs/fonts/F-26.gif)
+![F-27](gifs/fonts/F-27.gif)
+![F-28](gifs/fonts/F-28.gif)
+![F-29](gifs/fonts/F-29.gif)
+![F-2A](gifs/fonts/F-2A.gif)
+![F-2B](gifs/fonts/F-2B.gif)
+![F-2C](gifs/fonts/F-2C.gif)
+![F-2D](gifs/fonts/F-2D.gif)
+![F-2E](gifs/fonts/F-2E.gif)
+![F-2F](gifs/fonts/F-2F.gif)
+![F-3A](gifs/fonts/F-3A.gif)
+![F-3B](gifs/fonts/F-3B.gif)
+![F-3C](gifs/fonts/F-3C.gif)
+![F-3D](gifs/fonts/F-3D.gif)
+![F-3E](gifs/fonts/F-3E.gif)
+![F-3F](gifs/fonts/F-3F.gif)
+![F-40](gifs/fonts/F-40.gif)
+![F-5B](gifs/fonts/F-5B.gif)
+![F-5C](gifs/fonts/F-5C.gif)
+![F-5D](gifs/fonts/F-5D.gif)
+![F-5E](gifs/fonts/F-5E.gif)
+![F-60](gifs/fonts/F-60.gif)
+![F-7B](gifs/fonts/F-7B.gif)
+![F-7C](gifs/fonts/F-7C.gif)
+![F-7D](gifs/fonts/F-7D.gif)
+![F-7E](gifs/fonts/F-7E.gif)
+![F-a](gifs/fonts/F-a.gif)
+![F-A](gifs/fonts/F-A.gif)
+![F-b](gifs/fonts/F-b.gif)
+![F-B](gifs/fonts/F-B.gif)
+![F-c](gifs/fonts/F-c.gif)
+![F-C](gifs/fonts/F-C.gif)
+![F-d](gifs/fonts/F-d.gif)
+![F-D](gifs/fonts/F-D.gif)
+![F-e](gifs/fonts/F-e.gif)
+![F-E](gifs/fonts/F-E.gif)
+![F-f](gifs/fonts/F-f.gif)
+![F-F](gifs/fonts/F-F.gif)
+![F-g](gifs/fonts/F-g.gif)
+![F-G](gifs/fonts/F-G.gif)
+![F-h](gifs/fonts/F-h.gif)
+![F-H](gifs/fonts/F-H.gif)
+![F-i](gifs/fonts/F-i.gif)
+![F-I](gifs/fonts/F-I.gif)
+![F-j](gifs/fonts/F-j.gif)
+![F-J](gifs/fonts/F-J.gif)
+![F-k](gifs/fonts/F-k.gif)
+![F-K](gifs/fonts/F-K.gif)
+![F-l](gifs/fonts/F-l.gif)
+![F-L](gifs/fonts/F-L.gif)
+![F-m](gifs/fonts/F-m.gif)
+![F-M](gifs/fonts/F-M.gif)
+![F-n](gifs/fonts/F-n.gif)
+![F-N](gifs/fonts/F-N.gif)
+![F-o](gifs/fonts/F-o.gif)
+![F-O](gifs/fonts/F-O.gif)
+![F-p](gifs/fonts/F-p.gif)
+![F-P](gifs/fonts/F-P.gif)
+![F-q](gifs/fonts/F-q.gif)
+![F-Q](gifs/fonts/F-Q.gif)
+![F-r](gifs/fonts/F-r.gif)
+![F-R](gifs/fonts/F-R.gif)
+![F-s](gifs/fonts/F-s.gif)
+![F-S](gifs/fonts/F-S.gif)
+![F-t](gifs/fonts/F-t.gif)
+![F-T](gifs/fonts/F-T.gif)
+![F-u](gifs/fonts/F-u.gif)
+![F-U](gifs/fonts/F-U.gif)
+![F-v](gifs/fonts/F-v.gif)
+![F-V](gifs/fonts/F-V.gif)
+![F-w](gifs/fonts/F-w.gif)
+![F-W](gifs/fonts/F-W.gif)
+![F-x](gifs/fonts/F-x.gif)
+![F-X](gifs/fonts/F-X.gif)
+![F-y](gifs/fonts/F-y.gif)
+![F-Y](gifs/fonts/F-Y.gif)
+![F-z](gifs/fonts/F-z.gif)
+![F-Z](gifs/fonts/F-Z.gif)
+
+<br>
+
 ###### more examples coming soon
