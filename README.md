@@ -1788,4 +1788,138 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 
 <br>
 
+## change character position
+with every example so far we've been trying to keep the character at the center of the image using `-gravity center` but we can change the postion and make a motion out of it, the -gravity flags takes 9 alignment positions using center, north, northeast and etc, so lets loop all of the 9 positions in a for loop
+```
+for i in {a..z} {A..Z} {0..9} ; for g in northwest north northeast west center east southwest south southeast ; do convert -gravity $g -trim -background green -fill yellow -font ./nerd.ttf -size 30x30 caption:$i -extent 30x30 $i-$g.jpg ; done
+```
+```
+for char in {\!..\)} \@ \` {\*..\/} {\:..\?} {\[..\^} {\{..\~} ; for g in northwest north northeast west center east southwest south southeast ; do printf -v hex '%02X' $(( #char )) ; convert -gravity $g -trim -background green -fill yellow -font ./nerd.ttf -size 30x30 -extent 30x30 caption:$char $hex-$g.jpg ; done
+```
+these two commands give us the character and the position they are after as filenames
+
+| northwest | north | northeast |
+|---|---|---|
+| ![](temp/A-northwest.jpg) | ![](temp/A-north.jpg) | ![](temp/A-northeast.jpg) |
+| west | center | east |
+| ![](temp/A-west.jpg) | ![](temp/A-center.jpg) | ![](temp/A-east.jpg) |
+| southwest | south | southeast |
+| ![](temp/A-southwest.jpg) | ![](temp/A-south.jpg) | ![](temp/A-southeast.jpg) |
+
+now we need to decide the direction of our motion and change these filenames accordingly, i want a normal clockwise motion from northwest to west so we'll rename these files one by one and pad the next number after them, here is the first example which changes every filename that has northwest in it to 1 which is the first frame in each of our gifs
+```
+for i in *-northwest.jpg ; do mv "$i" "${i/northwest/1}" ; done
+```
+same command can be used for the next positions, or better yet, do it all in one giant command!
+```
+for i in *-northwest.jpg ; do mv "$i" "${i/northwest/1}" ; done ; for i in *-north.jpg ; do mv "$i" "${i/north/2}" ; done ; for i in *-northeast.jpg ; do mv "$i" "${i/northeast/3}" ; done ; for i in *-east.jpg ; do mv "$i" "${i/east/4}" ; done ; for i in *-southeast.jpg ; do mv "$i" "${i/southeast/5}" ; done ; for i in *-south.jpg ; do mv "$i" "${i/south/6}" ; done ; for i in *-southwest.jpg ; do mv "$i" "${i/southwest/7}" ; done ; for i in *-west.jpg ; do mv "$i" "${i/west/8}" ; done
+```
+we take the oppertunity to remove the unwanted center pictures since we don't need them anymore, depending on the motion you desire you might want to keep these or remove even more of these positions or don't even include them in your for loops
+```
+rm *-center.jpg
+```
+now convert these images to gifs
+```
+for m in {a..z} {A..Z} {0..9} ; do convert $(ls -v $m-*.jpg) ge-$m.gif ; done 
+```
+```
+for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do convert $(ls -v $m-*.jpg) ge-$m.gif ; done
+```
+
+![ge-0](gifs/gravity/ge-0.gif)
+![ge-1](gifs/gravity/ge-1.gif)
+![ge-2](gifs/gravity/ge-2.gif)
+![ge-3](gifs/gravity/ge-3.gif)
+![ge-4](gifs/gravity/ge-4.gif)
+![ge-5](gifs/gravity/ge-5.gif)
+![ge-6](gifs/gravity/ge-6.gif)
+![ge-7](gifs/gravity/ge-7.gif)
+![ge-8](gifs/gravity/ge-8.gif)
+![ge-9](gifs/gravity/ge-9.gif)
+![ge-21](gifs/gravity/ge-21.gif)
+![ge-22](gifs/gravity/ge-22.gif)
+![ge-23](gifs/gravity/ge-23.gif)
+![ge-24](gifs/gravity/ge-24.gif)
+![ge-25](gifs/gravity/ge-25.gif)
+![ge-26](gifs/gravity/ge-26.gif)
+![ge-27](gifs/gravity/ge-27.gif)
+![ge-28](gifs/gravity/ge-28.gif)
+![ge-29](gifs/gravity/ge-29.gif)
+![ge-2A](gifs/gravity/ge-2A.gif)
+![ge-2B](gifs/gravity/ge-2B.gif)
+![ge-2C](gifs/gravity/ge-2C.gif)
+![ge-2D](gifs/gravity/ge-2D.gif)
+![ge-2E](gifs/gravity/ge-2E.gif)
+![ge-2F](gifs/gravity/ge-2F.gif)
+![ge-3A](gifs/gravity/ge-3A.gif)
+![ge-3B](gifs/gravity/ge-3B.gif)
+![ge-3C](gifs/gravity/ge-3C.gif)
+![ge-3D](gifs/gravity/ge-3D.gif)
+![ge-3E](gifs/gravity/ge-3E.gif)
+![ge-3F](gifs/gravity/ge-3F.gif)
+![ge-40](gifs/gravity/ge-40.gif)
+![ge-5B](gifs/gravity/ge-5B.gif)
+![ge-5C](gifs/gravity/ge-5C.gif)
+![ge-5D](gifs/gravity/ge-5D.gif)
+![ge-5E](gifs/gravity/ge-5E.gif)
+![ge-60](gifs/gravity/ge-60.gif)
+![ge-7B](gifs/gravity/ge-7B.gif)
+![ge-7C](gifs/gravity/ge-7C.gif)
+![ge-7D](gifs/gravity/ge-7D.gif)
+![ge-7E](gifs/gravity/ge-7E.gif)
+![ge-a](gifs/gravity/ge-a.gif)
+![ge-A](gifs/gravity/ge-A.gif)
+![ge-b](gifs/gravity/ge-b.gif)
+![ge-B](gifs/gravity/ge-B.gif)
+![ge-c](gifs/gravity/ge-c.gif)
+![ge-C](gifs/gravity/ge-C.gif)
+![ge-d](gifs/gravity/ge-d.gif)
+![ge-D](gifs/gravity/ge-D.gif)
+![ge-e](gifs/gravity/ge-e.gif)
+![ge-E](gifs/gravity/ge-E.gif)
+![ge-f](gifs/gravity/ge-f.gif)
+![ge-F](gifs/gravity/ge-F.gif)
+![ge-g](gifs/gravity/ge-g.gif)
+![ge-G](gifs/gravity/ge-G.gif)
+![ge-h](gifs/gravity/ge-h.gif)
+![ge-H](gifs/gravity/ge-H.gif)
+![ge-i](gifs/gravity/ge-i.gif)
+![ge-I](gifs/gravity/ge-I.gif)
+![ge-j](gifs/gravity/ge-j.gif)
+![ge-J](gifs/gravity/ge-J.gif)
+![ge-k](gifs/gravity/ge-k.gif)
+![ge-K](gifs/gravity/ge-K.gif)
+![ge-l](gifs/gravity/ge-l.gif)
+![ge-L](gifs/gravity/ge-L.gif)
+![ge-m](gifs/gravity/ge-m.gif)
+![ge-M](gifs/gravity/ge-M.gif)
+![ge-n](gifs/gravity/ge-n.gif)
+![ge-N](gifs/gravity/ge-N.gif)
+![ge-o](gifs/gravity/ge-o.gif)
+![ge-O](gifs/gravity/ge-O.gif)
+![ge-p](gifs/gravity/ge-p.gif)
+![ge-P](gifs/gravity/ge-P.gif)
+![ge-q](gifs/gravity/ge-q.gif)
+![ge-Q](gifs/gravity/ge-Q.gif)
+![ge-r](gifs/gravity/ge-r.gif)
+![ge-R](gifs/gravity/ge-R.gif)
+![ge-s](gifs/gravity/ge-s.gif)
+![ge-S](gifs/gravity/ge-S.gif)
+![ge-t](gifs/gravity/ge-t.gif)
+![ge-T](gifs/gravity/ge-T.gif)
+![ge-u](gifs/gravity/ge-u.gif)
+![ge-U](gifs/gravity/ge-U.gif)
+![ge-v](gifs/gravity/ge-v.gif)
+![ge-V](gifs/gravity/ge-V.gif)
+![ge-w](gifs/gravity/ge-w.gif)
+![ge-W](gifs/gravity/ge-W.gif)
+![ge-x](gifs/gravity/ge-x.gif)
+![ge-X](gifs/gravity/ge-X.gif)
+![ge-y](gifs/gravity/ge-y.gif)
+![ge-Y](gifs/gravity/ge-Y.gif)
+![ge-z](gifs/gravity/ge-z.gif)
+![ge-Z](gifs/gravity/ge-Z.gif)
+
+<br>
+
 ###### more examples coming soon
