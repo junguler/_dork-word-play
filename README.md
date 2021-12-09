@@ -1790,7 +1790,7 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 <br>
 
 ## change character position
-with every example so far we've been trying to keep the character at the center of the image using `-gravity center` but we can change the postion and make a motion out of it, the -gravity flags takes 9 alignment positions using center, north, northeast and etc, so lets loop all of the 9 positions in a for loop
+with every example so far we've been trying to keep the character at the center of the image using `-gravity center` but we can change the position and make a motion out of it, the -gravity flags takes 9 alignment positions using center, north, northeast and etc, so lets loop all of the 9 positions in a for loop
 ```
 for i in {a..z} {A..Z} {0..9} ; for g in northwest north northeast west center east southwest south southeast ; do convert -gravity $g -trim -background green -fill yellow -font ./nerd.ttf -size 30x30 caption:$i -extent 30x30 $i-$g.jpg ; done
 ```
@@ -1822,7 +1822,7 @@ for i in *-south.jpg ; do mv "$i" "${i/south/6}" ; done
 for i in *-southwest.jpg ; do mv "$i" "${i/southwest/7}" ; done
 for i in *-west.jpg ; do mv "$i" "${i/west/8}" ; done
 ```
-we take the oppertunity to remove the unwanted center pictures since we don't need them anymore, depending on the motion you desire you might want to keep these or remove even more of these positions or don't even include them in your for loops
+we take the opportunity to remove the unwanted center pictures since we don't need them anymore, depending on the motion you desire you might want to keep these or remove even more of these positions or don't even include them in your for loops
 ```
 rm *-center.jpg
 ```
