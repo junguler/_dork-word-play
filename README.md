@@ -27,6 +27,7 @@ this tutorial markdown was made possible partially by a helpful [comment on redd
  * [make a smooth gradient motion](https://github.com/junguler/_dork-word-play#making-a-smooth-gradient-animation-the-hard-way)
  * [variable sizes](https://github.com/junguler/_dork-word-play#variable-sizes)
  * [use multiple fonts](https://github.com/junguler/_dork-word-play#use-multiple-fonts)
+ * [change character position](https://github.com/junguler/_dork-word-play#change-character-position)
 
 <br>
 
