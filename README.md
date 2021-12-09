@@ -1813,7 +1813,14 @@ for i in *-northwest.jpg ; do mv "$i" "${i/northwest/1}" ; done
 ```
 same command can be used for the next positions, or better yet, do it all in one giant command!
 ```
-for i in *-northwest.jpg ; do mv "$i" "${i/northwest/1}" ; done ; for i in *-north.jpg ; do mv "$i" "${i/north/2}" ; done ; for i in *-northeast.jpg ; do mv "$i" "${i/northeast/3}" ; done ; for i in *-east.jpg ; do mv "$i" "${i/east/4}" ; done ; for i in *-southeast.jpg ; do mv "$i" "${i/southeast/5}" ; done ; for i in *-south.jpg ; do mv "$i" "${i/south/6}" ; done ; for i in *-southwest.jpg ; do mv "$i" "${i/southwest/7}" ; done ; for i in *-west.jpg ; do mv "$i" "${i/west/8}" ; done
+for i in *-northwest.jpg ; do mv "$i" "${i/northwest/1}" ; done 
+for i in *-north.jpg ; do mv "$i" "${i/north/2}" ; done
+for i in *-northeast.jpg ; do mv "$i" "${i/northeast/3}" ; done
+for i in *-east.jpg ; do mv "$i" "${i/east/4}" ; done
+for i in *-southeast.jpg ; do mv "$i" "${i/southeast/5}" ; done
+for i in *-south.jpg ; do mv "$i" "${i/south/6}" ; done
+for i in *-southwest.jpg ; do mv "$i" "${i/southwest/7}" ; done
+for i in *-west.jpg ; do mv "$i" "${i/west/8}" ; done
 ```
 we take the oppertunity to remove the unwanted center pictures since we don't need them anymore, depending on the motion you desire you might want to keep these or remove even more of these positions or don't even include them in your for loops
 ```
