@@ -1925,3 +1925,28 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![ge-Y](gifs/gravity/ge-Y.gif)
 ![ge-z](gifs/gravity/ge-z.gif)
 ![ge-Z](gifs/gravity/ge-Z.gif)
+
+<br>
+
+## use glyphs/emojis
+in a few of the examples above i've mentioned using one of a [nerd fonts](https://www.nerdfonts.com/#home) which are a collection of 50+ free and open source fonts that are patched with 3600+ icons, using them is quite easy, just check their [cheat sheet](https://www.nerdfonts.com/cheat-sheet) and search for the string you like, when you found a glyph you like hover over it and click on the icon name to copy the glyph to your clipboard
+
+![](temp/nerd.png)
+
+now that we have a few of the icons we like, we can print them using convert
+```
+for i in  ﱘ      ; do convert -gravity center -trim -background grey25 -fill orange -font ./nerd.ttf -size 40x40 caption:$i -extent 30x30 $i.jpg ; done 
+```
+don't worry if you terminal emulator or browser is not capable of showing these icons, our font is patched with them and imagemagick is going to print them just fine, notice that we set -size to 40x40 but used -extent 30x30 to make the pictures smaller, this is because these glyphs have some white space around them but because we are working with such small pixel sizes we want to take advantage of the small screen realstate as much as possible
+
+these filenames look kind of weird on your filesystem, so lets change them to be able to use without any issues
+```
+A=1 ; for i in *.jpg ; do mv $i glyph-$[A].jpg ; A=$(( $A + 1 )) ; done
+```
+![](temp/glyph-1.jpg)
+![](temp/glyph-2.jpg)
+![](temp/glyph-3.jpg)
+![](temp/glyph-4.jpg)
+![](temp/glyph-5.jpg)
+![](temp/glyph-6.jpg)
+![](temp/glyph-7.jpg)
