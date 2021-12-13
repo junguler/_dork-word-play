@@ -1,7 +1,5 @@
-| ![](gifs/h-scroll/H-D.gif) | ![](gifs/h-scroll/H-o.gif) | ![](gifs/h-scroll/H-r.gif) | ![](gifs/h-scroll/H-k.gif) |  |  |  |  |  |  |  |  |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-|  |  |   |  | ![](gifs/W.gif) | ![](gifs/o.gif) | ![](gifs/r.gif) | ![](gifs/d.gif) |  |  |  |  |
-|  |  |  |  |  |  |  |  | ![](gifs/v-scroll/V-P.gif) | ![](gifs/v-scroll/V-l.gif) | ![](gifs/v-scroll/V-a.gif) | ![](gifs/v-scroll/V-y.gif) | 
+| ![](gifs/h-scroll/H-D.gif) ![](gifs/h-scroll/H-o.gif) ![](gifs/h-scroll/H-r.gif) ![](gifs/h-scroll/H-k.gif) | ![](gifs/W.gif) ![](gifs/o.gif) ![](gifs/r.gif) ![](gifs/d.gif) | ![](gifs/v-scroll/V-P.gif) ![](gifs/v-scroll/V-l.gif) ![](gifs/v-scroll/V-a.gif) ![](gifs/v-scroll/V-y.gif) | 
+|---|---|---|
 
 <br>
 
@@ -1927,7 +1925,3 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![ge-Y](gifs/gravity/ge-Y.gif)
 ![ge-z](gifs/gravity/ge-z.gif)
 ![ge-Z](gifs/gravity/ge-Z.gif)
-
-<br>
-
-###### more examples coming soon
