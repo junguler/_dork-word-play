@@ -1944,10 +1944,21 @@ these filenames look kind of weird on your filesystem, so lets change them to be
 ```
 A=1 ; for i in *.jpg ; do mv $i glyph-$[A].jpg ; A=$(( $A + 1 )) ; done
 ```
-![](temp/glyph-1.jpg)
-![](temp/glyph-2.jpg)
-![](temp/glyph-3.jpg)
-![](temp/glyph-4.jpg)
-![](temp/glyph-5.jpg)
-![](temp/glyph-6.jpg)
-![](temp/glyph-7.jpg)
+![1](temp/glyph-1.jpg)
+![2](temp/glyph-2.jpg)
+![3](temp/glyph-3.jpg)
+![4](temp/glyph-4.jpg)
+![5](temp/glyph-5.jpg)
+![6](temp/glyph-6.jpg)
+![7](temp/glyph-7.jpg)
+
+how about some arrows
+
+![8](temp/glyph-8.jpg)
+![9](temp/glyph-9.jpg)
+![10](temp/glyph-10.jpg)
+![11](temp/glyph-11.jpg)
+![12](temp/glyph-12.jpg)
+![13](temp/glyph-13.jpg)
+![14](temp/glyph-14.jpg)
+![15](temp/glyph-15.jpg)
