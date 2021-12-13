@@ -1962,3 +1962,11 @@ how about some arrows
 ![13](temp/glyph-13.jpg)
 ![14](temp/glyph-14.jpg)
 ![15](temp/glyph-15.jpg)
+
+lock and key
+
+![16](temp/glyph-16.jpg)
+![17](temp/glyph-17.jpg)
+![18](temp/glyph-18.jpg)
+![19](temp/glyph-19.jpg)
+![20](temp/glyph-20.jpg)
