@@ -1938,9 +1938,9 @@ now that we have a few of the icons we like, we can print them using convert
 ```
 for i in  ﱘ      ; do convert -gravity center -trim -background grey25 -fill orange -font ./nerd.ttf -size 40x40 caption:$i -extent 30x30 $i.jpg ; done 
 ```
-don't worry if you terminal emulator or browser is not capable of showing these icons, our font is patched with them and imagemagick is going to print them just fine, notice that we set -size to 40x40 but used -extent 30x30 to make the pictures smaller, this is because these glyphs have some white space around them but because we are working with such small pixel sizes we want to take advantage of the small screen realstate as much as possible
+don't worry if your terminal emulator or web browser is not capable of showing these icons, our font is patched with them and imagemagick is going to print them just fine, notice that we set `-size` to `40x40` but used `-extent 30x30` to make the pictures smaller, this is because these glyphs have some white space around them and because we are working with such small pixel sizes we want to take advantage of the small screen realstate as much as possible
 
-these filenames look kind of weird on your filesystem, so lets change them to be able to use without any issues
+these filenames look kind of weird on your filesystem, so lets change them to be able to use them without any issues
 ```
 A=1 ; for i in *.jpg ; do mv $i glyph-$[A].jpg ; A=$(( $A + 1 )) ; done
 ```
