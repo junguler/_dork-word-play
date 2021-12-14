@@ -1970,3 +1970,9 @@ lock and key
 ![18](temp/glyph-18.jpg)
 ![19](temp/glyph-19.jpg)
 ![20](temp/glyph-20.jpg)
+
+if for whatever reason you are not able to use a glyph icon directly inside your terminal you can also use the hex value of a glyph like this, just add `\u` before the actual 4 digit hex glyph to let the shell know what it is
+```
+for i in $(echo -e '\ufc58') ; do convert -gravity center -trim -background yellow -fill black -font ./nerd.ttf -size 30x30 caption:$i -extent 30x30 $i.jpg ; done
+```
+this echo command inside our for loop acts exactly as if we supplied the glyph itself
