@@ -27,6 +27,7 @@ this tutorial markdown was made possible partially by a helpful [comment on redd
  * [use multiple fonts](https://github.com/junguler/_dork-word-play#use-multiple-fonts)
  * [change character position](https://github.com/junguler/_dork-word-play#change-character-position)
  * [use glyphs/emojis](https://github.com/junguler/_dork-word-play#use-glyphsemojis)
+ * [gotta print them all](https://github.com/junguler/_dork-word-play#gotta-print-them-all)
 
 <br>
 
