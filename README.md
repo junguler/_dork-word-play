@@ -1986,8 +1986,8 @@ for i in $(echo -e '\ufc58' '\uf832' '\ufc59') ; do convert -gravity center -tri
 <br>
 
 ## gotta print them all!
-what if i want to print every nerd font glyphs in one command? well, we can do that no problem, i've scraped all of the hex values of these glyphs from this [css file](https://github.com/ryanoasis/nerd-fonts/blob/master/css/nerd-fonts-generated.css) provided by the nerd-fonts repo and included in the root folder of this repo, now we just need to echo them one by one and feed them to imagemagick
+what if i want to print every nerd font glyphs in one command? well, we can do that no problem, i've scraped all of the hex values of these glyphs from this [css file](https://github.com/ryanoasis/nerd-fonts/blob/master/css/nerd-fonts-generated.css) provided by the nerd-fonts repo and included in the root folder of this repo [here](https://github.com/junguler/_dork-word-play/blob/main/nerd-glyphs.txt), now we just need to echo them one by one and feed them to imagemagick
 ```
 for i in $(echo -e $(cat nerd-glyphs.txt)) ; do convert -gravity center -trim -background grey25 -fill orange -font ./nerd.ttf -size 90x90 caption:$i -extent 80x80 $i.jpg ; done
 ```
-because there is so many images (3689) i'm not going to link them here but i'll include them as a zip file in the root directory of this repo
+because there is so many images (3689) i'm not going to link them here but i'll include them as a [zip file](https://github.com/junguler/_dork-word-play/blob/main/nerd-glyphs.zip) in the root directory of this repo
