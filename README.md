@@ -2000,11 +2000,11 @@ because there is so many images (3689) i'm not going to link them here but i'll 
 <br>
 
 ## generate random hex colors and use them
-making a list of random colors is easy, i just did a quick search and found [this page](https://www.unix.com/shell-programming-and-scripting/268487-awk-unix-random-rgb-colors-generator.html) that has the answer, it does work but we want a list of 100 hex colors so we use in a for loop
+making a list of random colors is easy, i just did a quick search and found [this page](https://www.unix.com/shell-programming-and-scripting/268487-awk-unix-random-rgb-colors-generator.html) that has the answer, it does work but we want a list of 100 hex colors so we want to use it in a for loop
 ```
 for i in {1..100} ; do printf "%02x%02x%02x\n" $((RANDOM%256)) $((RANDOM%256)) $((RANDOM%256)) >> colors.txt ; done
 ```
-this command saves 100 randomized color values to the `colors.txt` text file, notice the use of `>>` if we only used `>` the text file would have be overwritten each time and would only contain one hex value, not lets used these newly made hex values as back ground color for our images
+this command saves 100 randomized color values to the `colors.txt` text file, notice the use of `>>` if we only used `>` the text file would have be overwritten each time and would only contain one hex value, now lets use these newly made hex values as background colors for our images
 ```
 for i in $(cat colors.txt) ; do convert -gravity center -trim -background \#$i -fill black -font ./nerd.ttf -size 30x30 caption:A -extent 30x30 $i.jpg ; done
 ```
