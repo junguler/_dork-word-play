@@ -169,6 +169,11 @@ notice the segmented ranges in our for loop ``{\!..\)} \@ \` {\*..\/} {\:..\?} {
 <br>
 
 ## animating the characters
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 so far we've been working with static image but let's change all of that and use ffmpeg to make a simple animation, we'll combine two for loops together one for the degrees of hue change (which changes the color of the images) and one for ffmpeg to iterate thru our images
 ```
 for h in {30..360..30} ; for i in {a..z}.jpg {A..Z}.jpg {0..9}.jpg ; do mkdir output ; ffmpeg -i $i -vf hue=h=$h output/$h-$i ; done
@@ -245,9 +250,16 @@ notice that the same pattern that we used when converting the input images is us
 ![Y](gifs/Y.gif)
 ![Z](gifs/Z.gif)
 
+</details>
+
 <br>
 
 ## animating special characters
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 the same principles applies here, we just need to adjust our commands a bit, first the ffmpeg command
 ```
 for h in {30..360..30} ; for i in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C 5D 5E 60 7B 7C 7D 7E ; do mkdir output2 ; ffmpeg -i $i.jpg -vf hue=h=$h output2/$h-$i.jpg ; done
@@ -289,9 +301,16 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![7D](gifs/7D.gif)
 ![7E](gifs/7E.gif)
 
+</details>
+
 <br>
 
 ## invert your output gifs
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 the easiest way to modify our newly made gifs is to invert them, it really changes the look of everything and it's so simple to do
 
 ```
@@ -392,9 +411,16 @@ for i in *.gif ; do mkdir inverted ; ffmpeg -i $i -vf negate inverted/I-$i ; don
 ![I-z](gifs/inverted/I-z.gif)
 ![I-Z](gifs/inverted/I-Z.gif)
 
+</details>
+
 <br>
 
 ## scroll your gifs
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 using ffmpeg scroll filter, we can scroll our gifs horizontally or vertically
 
 ```
@@ -595,9 +621,16 @@ for i in *.gif ; do mkdir v-scroll ; ffmpeg -i $i -vf scroll=v=-0.09 v-scroll/V-
 
 if you want to reverse the motion either add a negative sign `-` before the values like in our vertical example or do not include it like the horizontal example
 
+</details>
+
 <br>
 
 ## combine multiple filters
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 say i don't care about the colors of above animations but i do like motion so let's make it black & white we also use `,` to combine this filter with invert to make a dark variant of those animations
 
 ```
@@ -795,9 +828,16 @@ for i in *.gif ; do mkdir bw-inv ; ffmpeg -i $i -vf hue=s=0,negate bw-inv/B-$i ;
 
 the same results can be achieved with the convert's own `-negate` for the invert and `-monochrome` for black and white filter but since we already had our gifs made i used ffmpeg because it has more options and filters to play with 
 
+</details>
+
 <br>
 
 ## rotate your characters
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 convert has a native flag for rotating images and in our case characters so let's use it to create these images and iterate thru them all with rotation
 
 ```
@@ -1013,9 +1053,16 @@ same two commands can be run on your counter-clock rotation image sequences
 ![RL-z](gifs/rot-cclo/RL-z.gif)
 ![RL-Z](gifs/rot-cclo/RL-Z.gif)
 
+</details>
+
 <br>
 
 ## using shades of grey as color
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 imagemagick uses a wide variety of color values and names as input, look [here](https://imagemagick.org/script/color.php) for a complete explanation, but the easiest way to use this is by choosing color names, for the shades of grey specifically there are grey0 which is a black color to grey100 which is a white color and everything between grey1 and grey99 are shades of grey, knowing this we can easily loop thru them in a for loop like this 
 ```
 for i in {0..9} {a..z} {A..Z} ; for g in {0..100..10} ; do convert -gravity center -trim -background grey50 -fill grey$g -font ./nerd.ttf -size 30x30 caption:$i -extent 30x30 $g-$i.jpg ; done
@@ -1126,9 +1173,16 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![g-z](gifs/grey/g-z.gif)
 ![g-Z](gifs/grey/g-Z.gif)
 
+</details>
+
 <br>
 
 ## merge multiple files together
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 using `-adjoin` we can easily combine multiple images to make a gif file
 ```
 convert -adjoin $(ls -v *.jpg) all.gif
@@ -1147,9 +1201,16 @@ convert -adjoin $(ls -v *.gif) numbers.gif
 ```
 ![numbers](temp/numbers.gif)
 
+</details>
+
 <br>
 
 ## making a smooth gradient animation, the hard way
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 in one of the above sections i showed how to use ffmpeg's hue filter to make a gradient with colors, it gets the job done but sometimes you want more control with exact colors you want to use
 
 imagemagick gives many options for specifying colors, in our case we'll use `rgb(100%, 0%, 0%)` which takes percentages as RGB values, lets start by changing the colors from red `rgb(100%, 0%, 0%)` to magenta `rgb(100%, 0%, 100%)` with 10% increments
@@ -1464,9 +1525,16 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![A6-z](gifs/gradient/A6-z.gif)
 ![A6-Z](gifs/gradient/A6-Z.gif)
 
+</details>
+
 <br>
 
 ## variable sizes
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 using `-pointsize` flag we can set the size of our characters in our for loop
 ```
 for i in {a..z} {A..Z} {0..9} ; for s in {5..50..5} ; do convert -gravity center -trim -background grey25 -fill grey75 -font ./nerd.ttf -size 30x30 -pointsize $s caption:$i -extent 30x30 $i-$s.jpg ; done
@@ -1678,9 +1746,16 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![R-z](gifs/size/R-z.gif)
 ![R-Z](gifs/size/R-Z.gif)
 
+</details>
+
 <br>
 
 ## use multiple fonts
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 we can use multiple fonts in our for loop, i've included a few nerd fonts in the font folder of this repo, for the simplicity and ease of use the names have been removed for this following command and i only use the two digit numbers at the beginning
 ```
 for i in {a..z} {A..Z} {0..9} ; for f in *.ttf ; do convert -gravity center -trim -background grey75 -fill grey25 -font ./$f -size 30x30 caption:$i -extent 30x30 $i-$f.jpg ; done
@@ -1790,9 +1865,14 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![F-z](gifs/fonts/F-z.gif)
 ![F-Z](gifs/fonts/F-Z.gif)
 
+</details>
+
 <br>
 
 ## change character position
+<details>
+  <summary>click me to read</summary>
+
 with every example so far we've been trying to keep the character at the center of the image using `-gravity center` but we can change the position and make a motion out of it, the -gravity flags takes 9 alignment positions using center, north, northeast and etc, so lets loop all of the 9 positions in a for loop
 ```
 for i in {a..z} {A..Z} {0..9} ; for g in northwest north northeast west center east southwest south southeast ; do convert -gravity $g -trim -background green -fill yellow -font ./nerd.ttf -size 30x30 caption:$i -extent 30x30 $i-$g.jpg ; done
@@ -1931,9 +2011,14 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![ge-z](gifs/gravity/ge-z.gif)
 ![ge-Z](gifs/gravity/ge-Z.gif)
 
+</details>
+
 <br>
 
 ## use glyphs/emojis
+<details>
+  <summary>click me to read</summary>
+
 in a few of the examples above i've mentioned using one of a [nerd fonts](https://www.nerdfonts.com/#home) which are a collection of 50+ free and open source fonts that are patched with 3600+ icons, using them is quite easy, just check their [cheat sheet](https://www.nerdfonts.com/cheat-sheet) and search for the string you like, when you found a glyph you like hover over it and click on the icon name to copy the glyph to your clipboard
 
 ![](temp/nerd.png)
@@ -1986,9 +2071,16 @@ printing multiple hex glyps is also easy, just include them inside our echo comm
 for i in $(echo -e '\ufc58' '\uf832' '\ufc59') ; do convert -gravity center -trim -background grey25 -fill orange -font ./nerd.ttf -size 40x40 caption:$i -extent 30x30 $i.jpg ; done
 ```
 
+</details>
+
 <br>
 
 ## gotta print them all!
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 what if i want to print every nerd font glyphs in one command? well, we can do that no problem, i've scraped all of the hex values of these glyphs from this [css file](https://github.com/ryanoasis/nerd-fonts/blob/master/css/nerd-fonts-generated.css) provided by the nerd-fonts repo and included them in the root folder of this repo [here](https://github.com/junguler/_dork-word-play/blob/main/nerd-glyphs.txt), now we just need to echo them one by one and feed them to imagemagick
 ```
 for i in $(echo -e $(cat nerd-glyphs.txt)) ; do convert -gravity center -trim -background grey25 -fill orange -font ./nerd.ttf -size 90x90 caption:$i -extent 80x80 $i.jpg ; done
@@ -1999,9 +2091,16 @@ A=1 ; for i in *.jpg ; do mv $i glyph-$[A].jpg ; A=$(( $A + 1 )) ; done
 ```
 because there is so many images (3689) i'm not going to link them here but i'll include them as a [zip file](https://github.com/junguler/_dork-word-play/blob/main/nerd-glyphs.zip) in the root directory of this repo
 
+</details>
+
 <br>
 
 ## generate random hex colors and use them
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 making a list of random colors is easy, i just did a quick search and found [this page](https://www.unix.com/shell-programming-and-scripting/268487-awk-unix-random-rgb-colors-generator.html) that has the answer, it does work but we want a list of 100 hex colors so we want to use it in a for loop
 ```
 for i in {1..100} ; do printf "%02x%02x%02x\n" $((RANDOM%256)) $((RANDOM%256)) $((RANDOM%256)) >> colors.txt ; done
@@ -2219,9 +2318,16 @@ for i in $(cat colors.txt) ; do convert -gravity center -trim -background white 
 ![](images/rando2/a76c1c.jpg)
 ![](images/rando2/848edd.jpg)
 
+</details>
+
 <br>
 
 ## add border to characters
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 adding border is easy, specify it's width with `-border` and it's color with `-bordercolor` this normally applies to the frame of the image but since we are apply trim to these characters to make them center to border starts to wrap around the character
 ```
 for i in {a..z} {A..Z} {0..9} ; for s in {1..10..2} ; do convert -gravity center -trim -background yellow -fill black -border $s -bordercolor orange -font ./nerd.ttf -size 30x30 caption:$i -extent 30x30 $i-$s.jpg ; done
@@ -2447,9 +2553,16 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![E-z](gifs/border/E-z.gif)
 ![E-Z](gifs/border/E-Z.gif)
 
+</details>
+
 <br>
 
 ## add stroke to characters
+<details>
+  <summary>click me to read</summary>
+
+<br>
+
 stroke is not additive to the overal size of our characters but it devours them, we can work with and make a cool effect using `-stroke` for color and `-strokewidth` for it's width, this flag also takes negative numbers so making a back and forth motion is easy to do with one command
 ```
 for i in {a..z} {A..Z} {0..9} ; for s in {3..-3} ; do convert -gravity center -trim -background grey50 -fill yellow -strokewidth $s -stroke orange -font ./nerd.ttf -size 30x30 caption:$i -extent 30x30 $i-$s.jpg ; done
@@ -2558,3 +2671,5 @@ for m in 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 3A 3B 3C 3D 3E 3F 40 5B 5C
 ![ST-Y](gifs/stroke/ST-Y.gif)
 ![ST-z](gifs/stroke/ST-z.gif)
 ![ST-Z](gifs/stroke/ST-Z.gif)
+
+</details>
