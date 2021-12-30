@@ -29,6 +29,7 @@ this tutorial markdown was made possible partially by a helpful [comment on redd
  * [use glyphs/emojis](https://github.com/junguler/_dork-word-play#use-glyphsemojis)
  * [gotta print them all](https://github.com/junguler/_dork-word-play#gotta-print-them-all)
  * [generate random hex color values](https://github.com/junguler/_dork-word-play#generate-random-hex-colors-and-use-them)
+ * [hex color values as text captions](https://github.com/junguler/_dork-word-play#hex-colors-values-as-text-captions)
  * [add border to characters](https://github.com/junguler/_dork-word-play#add-border-to-characters)
  * [add stroke to characters](https://github.com/junguler/_dork-word-play#add-stroke-to-characters)
 
@@ -2223,7 +2224,7 @@ for i in $(cat colors.txt) ; do convert -gravity center -trim -background white 
 
 <br>
 
-## hex colors values as text captions
+## hex color values as text captions
 using the same command as above, create the list of 100 random hex colors, now use these hex values as the caption of the image too, because the string is longer lets make the images 90x30 pixels 
 ```
 for i in $(cat colors.txt) ; do convert -gravity center -trim -background \#$i -fill black -font ./nerd.ttf -size 90x30 caption:\#$i -extent 90x30 $i.jpg ; done
